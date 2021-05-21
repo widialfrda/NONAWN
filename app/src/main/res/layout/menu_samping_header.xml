@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/heavyyellow">
+
+        <TextView
+            android:id="@+id/menu_text_nonawn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N O N A W N"
+            android:layout_marginLeft="15dp"
+            android:textSize="30sp"
+            android:layout_above="@+id/menu_text_desc"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="cursive"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/menu_text_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Menu yang kamu cari ada disini"
+            android:textColor="@color/dark_grey"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/untukmenu"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"/>
+
+</RelativeLayout>

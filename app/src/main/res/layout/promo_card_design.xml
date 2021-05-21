@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:elevation="8dp"
+    android:layout_margin="15sp">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/disc_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/diskon"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/disc_tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/disc_image"
+            android:fontFamily="@font/carter_one"
+            android:text="Diskon 6%!"
+            android:textSize="21dp" />
+
+        <TextView
+            android:id="@+id/disc_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/disc_tittle"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/disc_image"
+            android:fontFamily="@font/arsenal"
+            android:text="Akhir bulan pengen ngemil enak? Ada diskon 6% yang menantimu nih sobat!" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

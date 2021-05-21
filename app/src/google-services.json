@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778610678627",
+    "project_id": "nonawn-260799",
+    "storage_bucket": "nonawn-260799.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778610678627:android:78d7849d1912d62687d156",
+        "android_client_info": {
+          "package_name": "com.example.nonawn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778610678627-frgtomcsb0r43omd1qe9lp2k1f68den6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlAIAXvGclUjHJJU6sjlSX2NCV28HTFHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778610678627-frgtomcsb0r43omd1qe9lp2k1f68den6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

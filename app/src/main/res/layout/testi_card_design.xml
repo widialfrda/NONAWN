@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="340dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:elevation="8dp"
+    android:layout_margin="14dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/img_testi"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/unknownpict" />
+
+        <TextView
+            android:id="@+id/tittle_testi"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/img_testi"
+            android:text="walfreeday"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/dark_grey"
+            android:paddingTop="10dp"
+            android:textAllCaps="true"/>
+
+        <RatingBar
+            android:id="@+id/rating_testi"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:paddingTop="5dp"
+            android:rating="4.8"
+            android:progressTint="#FFE03E"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tittle_testi"/>
+
+        <TextView
+            android:id="@+id/desc_testi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/rating_testi"
+            android:text="@string/desc_testi"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            android:id="@+id/user_testi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="username"
+            android:textStyle="italic"
+            android:fontFamily="serif-monospace"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

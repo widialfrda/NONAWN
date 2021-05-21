@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Common.SignUpLogin.RetailerWelcomeScreen"
+    android:background="@drawable/bg_welcome"
+    android:padding="30dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_welcome_screen"
+            android:layout_width="230dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/logo"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:lottie_url="https://assets2.lottiefiles.com/private_files/lf30_GjhcdO.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Ngemil apa ya hari ini ?"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eitss tapi, kamu udah punya akun belum? kalau udah langsung login aja yah! kalau belum, sign up dulu"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="170dp"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button_login"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/round_for_welcome_screen"
+                    android:elevation="8dp"
+                    android:text="LOGIN"
+                    android:onClick="goto_login"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:transitionName="trans_login"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="170dp"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button_signup"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="right"
+                    android:background="@drawable/round_for_welcome_screen"
+                    android:elevation="8dp"
+                    android:text="Sign UP"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

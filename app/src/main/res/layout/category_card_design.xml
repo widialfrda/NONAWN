@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="10dp"
+    android:layout_margin="15sp">
+
+
+        <RelativeLayout
+            android:id="@+id/categ_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="18dp"
+            android:background="@color/bg_category">
+
+            <TextView
+                android:id="@+id/categ_tittle"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/redrose_variable"
+                android:gravity="center"
+                android:text="Merah Jeruk"
+                android:textColor="@color/dark_grey"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/categ_image"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/merah_jeruk" />
+
+        </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
