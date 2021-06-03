@@ -39,4 +39,21 @@ public class RetailerWelcomeScreen extends AppCompatActivity {
         }
 
     }
+
+    public void goto_signup(View view) {
+        Intent intent = new Intent(getApplicationContext(),Signup.class);
+
+        Pair[] pairs = new Pair[1];
+
+        pairs [0] = new Pair<View,String>(findViewById(R.id.button_signup),"trans_signup");
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            ActivityOptions options= ActivityOptions.makeSceneTransitionAnimation(RetailerWelcomeScreen.this,pairs);
+            startActivity(intent,options.toBundle());
+        }
+        else{
+            startActivity(intent);
+        }
+
+    }
 }

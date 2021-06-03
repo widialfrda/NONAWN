@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.nonawn.R;
@@ -36,7 +36,7 @@ public class SliderAdapter extends PagerAdapter {
             R.string.shopping_tittle,
             R.string.transfer_tittle,
             R.string.order_success_tittle,
-            R.string.delivery_tittle
+            R.string.delivery_tittle,
     };
 
     int descriptions [] = {
@@ -44,7 +44,7 @@ public class SliderAdapter extends PagerAdapter {
             R.string.shopping_desc,
             R.string.transfer_desc,
             R.string.order_success_desc,
-            R.string.delivery_desc
+            R.string.delivery_desc,
 
     };
 
@@ -55,7 +55,7 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (ConstraintLayout) object;
+        return view == (LinearLayout) object;
     }
 
     @NonNull
@@ -81,6 +81,6 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((ConstraintLayout)object);
+        container.removeView((LinearLayout)object);
     }
 }

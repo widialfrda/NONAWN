@@ -46,7 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Eitss tapi, kamu udah punya akun belum? kalau udah langsung login aja yah! kalau belum, sign up dulu"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/dark_grey"
+            android:layout_marginTop="7dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,7 +88,9 @@
                     android:background="@drawable/round_for_welcome_screen"
                     android:elevation="8dp"
                     android:text="Sign UP"
-                    android:textColor="@color/black" />
+                    android:onClick="goto_signup"
+                    android:textColor="@color/black"
+                    android:transitionName="trans_signup"/>
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

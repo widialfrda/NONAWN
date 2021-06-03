@@ -2,6 +2,7 @@ package com.example.nonawn.Common.SignUpLogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,5 +17,17 @@ public class Login extends AppCompatActivity {
     }
 
     public void forgetpass(View view) {
+        startActivity(new Intent(getApplicationContext(),ForgetPassword.class));
+        finish();
+    }
+
+    public void backtoWelcomeScreen(View view) {
+        startActivity(new Intent(getApplicationContext(),RetailerWelcomeScreen.class));
+        finish();
+    }
+
+    public void go_signup2(View view) {
+        startActivity(new Intent(getApplicationContext(),Signup.class));
+        finish();
     }
 }

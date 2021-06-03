@@ -31,7 +31,8 @@
         android:onClick="skip"
         android:clickable="true"
         android:padding="10dp"
-        android:background="@color/warm"/>
+        android:background="@color/warm"
+        android:textColor="@color/dark_grey"/>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -50,7 +51,7 @@
             android:textSize="15dp"
             android:clickable="true"
             android:onClick="letsgo"
-            android:background="@color/button"
+            android:backgroundTint="@color/maroon"
             android:visibility="invisible"/>
         
         <LinearLayout

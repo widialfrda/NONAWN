@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Common.SignUpLogin.Login"
     android:background="@color/whitegrey"
-    android:padding="30dp"
+    android:padding="20dp"
     android:orientation="vertical"
     android:transitionName="trans_login">
 
@@ -18,7 +18,9 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/arrowback_garis"/>
+            android:src="@drawable/arrowback_garis"
+            android:clickable="true"
+            android:onClick="backtoWelcomeScreen"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -31,14 +33,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Alamat Email"
-            app:hintTextColor="@color/black"
+            android:textColorHint="@color/dark_grey"
+            app:hintTextColor="@color/maroon"
             app:boxStrokeColor="@color/dark_grey"
             app:boxStrokeWidthFocused="2dp">
 
@@ -47,7 +51,9 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textColor="@color/black"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/dark_grey"
+                android:textCursorDrawable="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +62,9 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Password"
-            app:hintTextColor="@color/black"
+            android:textColorHint="@color/dark_grey"
+            app:hintTextColor="@color/maroon"
+            app:counterOverflowTextColor="@color/dark_grey"
             app:boxStrokeColor="@color/dark_grey"
             app:boxStrokeWidthFocused="2dp"
             android:layout_marginTop="20dp"
@@ -68,7 +76,8 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textColor="@color/black"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textCursorDrawable="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:text="Lupa detail login? "
                 android:layout_centerVertical="true"
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@color/dark_grey"/>
 
             <TextView
@@ -91,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dapatkan bantuan untuk login"
                 android:layout_alignParentEnd="true"
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:clickable="true"
@@ -105,7 +114,7 @@
             android:text="MASUK"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
-            android:background="@color/maroon"/>
+            android:backgroundTint="@color/maroon"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -126,7 +135,9 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:onClick="go_signup2"/>
     </RelativeLayout>
 
 
