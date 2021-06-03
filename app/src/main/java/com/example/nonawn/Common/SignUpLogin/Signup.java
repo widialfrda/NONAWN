@@ -71,7 +71,7 @@ public class Signup extends AppCompatActivity {
 
     private boolean validateEmail(){
         String val = email.getEditText().getText().toString().trim();
-        String checkEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]";
+        String checkEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if (val.isEmpty()){
             email.setError("Harus diisi");
