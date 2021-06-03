@@ -12,7 +12,9 @@
     <ImageView
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:src="@drawable/arrowback_garis"/>
+        android:src="@drawable/arrowback_garis"
+        android:clickable="true"
+        android:onClick="backOTP"/>
 
     <ImageView
         android:layout_width="match_parent"

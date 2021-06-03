@@ -20,4 +20,9 @@ public class SetNewPass extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),SuksesForgetPassMsg.class));
         finish();
     }
+
+    public void backOTP(View view) {
+        startActivity(new Intent(getApplicationContext(),OTPVerify.class));
+        finish();
+    }
 }

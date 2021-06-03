@@ -20,4 +20,9 @@ public class OTPVerify extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),SetNewPass.class));
         finish();
     }
+
+    public void exitOTP(View view) {
+        startActivity(new Intent(getApplicationContext(),PilihanReset.class));
+        finish();
+    }
 }

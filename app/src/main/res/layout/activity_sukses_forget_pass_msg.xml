@@ -42,10 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MASUK"
-        android:textColor="@color/white"
+        android:textColor="@color/dark_grey"
         android:fontFamily="sans-serif-condensed-medium"
         android:textSize="17sp"
-        android:backgroundTint="@color/maroon"
         android:layout_marginTop="40dp"
         android:clickable="true"
         android:onClick="suksesforget_gotologin"/>

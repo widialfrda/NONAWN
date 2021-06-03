@@ -26,4 +26,9 @@ public class PilihanReset extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),OTPVerify.class));
         finish();
     }
+
+    public void pilihanreset_backlogin(View view) {
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
 }

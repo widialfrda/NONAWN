@@ -17,7 +17,9 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/icon_clear_x"/>
+            android:src="@drawable/icon_clear_x"
+            android:clickable="true"
+            android:onClick="exitOTP" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,7 +75,9 @@
             android:cursorVisible="true"
             app:cursorColor="@color/black"
             app:hideLineWhenFilled="true"
-            app:itemRadius="5dp"/>
+            app:itemRadius="5dp"
+            android:textColor="@color/dark_grey"
+            android:inputType="number"/>
 
     </LinearLayout>
 
