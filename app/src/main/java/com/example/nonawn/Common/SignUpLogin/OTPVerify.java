@@ -32,7 +32,7 @@ public class OTPVerify extends AppCompatActivity {
             return false;
         }
         else if(!val.matches(checkOTP)){
-            otp_verify.setError("Isi harus berupa 4 angka");
+            otp_verify.setError("Harus mengandung 4 angka");
             return false;
         }
         else{
