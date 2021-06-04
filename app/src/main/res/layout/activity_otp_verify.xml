@@ -61,16 +61,23 @@
                 android:layout_marginTop="15dp"/>
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp">
+
         <com.chaos.view.PinView
             android:id="@+id/otp_pinview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center_vertical"
-            app:itemCount="6"
+            android:gravity="center"
+            app:itemCount="4"
             app:itemWidth="50dp"
             app:itemHeight="50dp"
-            android:layout_marginTop="25dp"
             app:lineColor="@color/dark_grey"
             style="@style/PinWidget.PinView"
             android:cursorVisible="true"
@@ -78,11 +85,11 @@
             app:hideLineWhenFilled="true"
             app:itemRadius="5dp"
             android:textColor="@color/dark_grey"
-            android:inputType="number"/>
-
+            android:inputType="number" />
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_submitOTP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/maroon"
