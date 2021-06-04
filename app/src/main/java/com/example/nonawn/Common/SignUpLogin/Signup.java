@@ -97,7 +97,7 @@ public class Signup extends AppCompatActivity {
             return false;
         }
         else if(!val.matches(checkPass)){
-            password.setError("Kata sandi min. 4 karakter");
+            password.setError("Harus mengandung minimal 4 karakter, disertai angka dan karakter khusus");
             return false;
         }
         else{
