@@ -121,7 +121,8 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/maroon"
             android:clickable="true"
-            android:onClick="login_userdashboard"/>
+            android:onClick="login_userdashboard"
+            android:transitionName="trans_signin"/>
     </LinearLayout>
 
     <RelativeLayout

@@ -97,7 +97,11 @@ public class Signup extends AppCompatActivity {
             return false;
         }
         else if(!val.matches(checkPass)){
-            password.setError("Harus mengandung minimal 4 karakter, disertai angka dan karakter khusus");
+            password.setError("Harus mengandung minimal 6 karakter, disertai angka dan karakter khusus");
+            return false;
+        }
+        else if(val.length() > 15){
+            password.setError("Maximal 15 karakter");
             return false;
         }
         else{

@@ -73,7 +73,11 @@ public class Login extends AppCompatActivity {
             return false;
         }
         else if(!val.matches(checkPass)){
-            var_login_pass.setError("Harus mengandung minimal 4 karakter, disertai angka dan karakter khusus");
+            var_login_pass.setError("Harus mengandung minimal 6 karakter, disertai angka dan karakter khusus");
+            return false;
+        }
+        else if(val.length() > 15){
+            var_login_pass.setError("Maksimal 15 karakter");
             return false;
         }
         else{
@@ -98,7 +102,7 @@ public class Login extends AppCompatActivity {
 
         Pair[] pairs = new Pair[1];
 
-        pairs[0] = new Pair<View,String>(btnsignin,"trans_signup");
+        pairs[0] = new Pair<View,String>(btnsignin,"trans_signin");
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
