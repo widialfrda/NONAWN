@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.nonawn.R;
+
 public class Profile extends AppCompatActivity {
 
     @Override
