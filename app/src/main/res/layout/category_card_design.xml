@@ -4,7 +4,7 @@
     android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
-    android:elevation="10dp"
+    android:elevation="15dp"
     android:layout_margin="15sp">
 
 
@@ -27,10 +27,10 @@
                 android:textSize="21sp"
                 android:textStyle="bold" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/categ_image"
                 android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/merah_jeruk" />
 

@@ -12,9 +12,9 @@
 
     //For desc on boarding screen
     <string name="shopping_desc">Desain katalog yang simple dan eye catching memudahkan kamu untuk melihat varian snack yang available</string>
-    <string name="transfer_desc">Tidak punya rekening bank? Gausah khawatir! Ada sistem COD yang menghilangkan kekhawatiranmu!</string>
-    <string name="order_success_desc">Kini kamu dapat melihat detail transaksimu di tools history</string>
-    <string name="delivery_desc">Cukup tunggu dirumah, kurir akan mengirim cemilanmu sampai depan rumah. Have a nice and enjoy day!</string>
+    <string name="transfer_desc">Jangan khawatir, kami menyediakan pilihan untuk memudahkan proses pembayaranmu</string>
+    <string name="order_success_desc">Kini kamu dapat melihat detail transaksimu di history</string>
+    <string name="delivery_desc">Selamat menikmati Cemilanmu!</string>
 
     //For content on boarding screen
     <string name="skip_btn">SKIP</string>
@@ -26,7 +26,7 @@
     <string name="kategori">Kategori</string>
     <string name="testimoni">Testimoni</string>
     <string name="bestseller_tittle">BEST SELLER</string>
-    <string name="bestseller_desc">Bingung mau jajan yang mana? Swipe left untuk lihat best seller minggu ini yuk! </string>
+    <string name="bestseller_desc">Swipe left untuk lihat best seller minggu ini ya! </string>
     <string name="category_tittle">Produk Kami</string>
     <string name="view_all">Lihat Semua</string>
     <string name="testi_tittle">Apa Kata Mereka</string>

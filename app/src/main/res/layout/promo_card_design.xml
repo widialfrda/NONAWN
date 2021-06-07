@@ -10,7 +10,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/disc_image"
@@ -28,7 +29,8 @@
             android:layout_toRightOf="@+id/disc_image"
             android:fontFamily="@font/carter_one"
             android:text="Diskon 6%!"
-            android:textSize="21dp" />
+            android:textSize="21dp"
+            android:textColor="@color/dark_grey"/>
 
         <TextView
             android:id="@+id/disc_desc"
@@ -39,6 +41,7 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/disc_image"
             android:fontFamily="@font/arsenal"
+            android:textColor="@color/dark_grey"
             android:text="Akhir bulan pengen ngemil enak? Ada diskon 6% yang menantimu nih sobat!" />
 
 

@@ -78,6 +78,7 @@
                     android:textSize="15sp"
                     android:layout_toRightOf="@+id/icon_nama_tentang"
                     android:textStyle="bold"
+                    android:textColor="@color/grey"
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
 
@@ -105,6 +106,7 @@
                 android:textSize="15sp"
                 android:layout_toRightOf="@+id/icon_NPM_tentang"
                 android:textStyle="bold"
+                android:textColor="@color/grey"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
 
@@ -130,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:text="3DB01"
                 android:textSize="15sp"
+                android:textColor="@color/grey"
                 android:layout_toRightOf="@+id/icon_kelas_tentang"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"/>
@@ -159,6 +162,7 @@
                 android:textSize="15sp"
                 android:layout_toRightOf="@+id/icon_univ_tentang"
                 android:textStyle="bold"
+                android:textColor="@color/grey"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
 

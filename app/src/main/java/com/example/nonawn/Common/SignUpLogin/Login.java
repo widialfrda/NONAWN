@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
         //variables for validate email & pass
         var_login_email = findViewById(R.id.signin_email);
         var_login_pass =  findViewById(R.id.signin_password);
+        btnsignin = findViewById(R.id.signin_btn);
 
     }
 
@@ -76,10 +77,6 @@ public class Login extends AppCompatActivity {
             var_login_pass.setError("Harus mengandung minimal 6 karakter, disertai angka dan karakter khusus");
             return false;
         }
-        else if(val.length() > 15){
-            var_login_pass.setError("Maksimal 15 karakter");
-            return false;
-        }
         else{
             var_login_pass.setError(null);
             var_login_pass.setErrorEnabled(false);
@@ -89,7 +86,7 @@ public class Login extends AppCompatActivity {
 
     public void login_userdashboard(View view) {
 
-        if (!signin_validateEmail() | signin_validatePassword()){
+        if (!signin_validateEmail() | !signin_validatePassword()){
             return;
         }
         String getEmail = getIntent().getStringExtra("email");

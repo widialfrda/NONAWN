@@ -128,30 +128,21 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     private void kategoriRecycler(){
 
-        gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
-        gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
-        gradient3 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
-        gradient4 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffb8d7f5, 0xffb8d7f5});
+        gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff8f8f8, 0xfff8f8f8});
+        gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffffffff, 0xffffffff});
 
         ArrayList<KategoriHelperClass> kategoriLocations = new ArrayList<>();
 
         kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.gurih, "Gurih"));
         kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.gurih_jeruk, "Gurih Jeruk"));
-        kategoriLocations.add(new KategoriHelperClass(gradient3,R.drawable.keju, "Keju"));
-        kategoriLocations.add(new KategoriHelperClass(gradient4,R.drawable.bbq, "BBQ"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.keju, "Keju"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.bbq, "BBQ"));
         kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.lada_hitam, "Lada Hitam"));
         kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.seaweed, "Rumput Laut"));
-        kategoriLocations.add(new KategoriHelperClass(gradient3,R.drawable.cabe_ijo, "Cabe Ijo"));
-        kategoriLocations.add(new KategoriHelperClass(gradient4,R.drawable.cabe_merah, "Cabe Merah"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.cabe_ijo, "Cabe Ijo"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.cabe_merah, "Cabe Merah"));
         kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.merah_jeruk, "Merah Jeruk"));
         kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.ijo_jeruk, "Ijo Jeruk"));
-
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.merah_jeruk, "Merah Jeruk", "Kombinasi cabe merah dan daun jeruk membuat varian ini selalu menduduki posisi pertama karena kesegarannya!"));
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.gurih, "Gurih", "Rasa kerupuk kulit yang disertai rasa gurih yang tidak mencolok membuat lidah tidak berhenti makan!"));
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.cabe_merah, "Cabe Merah", "Ada yang merah, tapi bukan delima! Yap, cabe merah yang disertai rasa gurih. Rasa gurih pedasnya bikin ketagihan!"));
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.gurih_jeruk, "Gurih Jeruk", "Selain gurih, rasa segar dari daun jeruk cocok banget untuk kalian yang gasuka pedas tapi ingin dapat sensasi segar!"));
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.bbq, "BBQ", "Aroma sapi panggang yang unik memperkaya cita rasa kerupuk kulit asli sapinya lho!"));
-//        kategoriLocations.add(new KategoriHelperClass(R.drawable.keju, "Keju", ""));
 
         kategoriRecycler.setHasFixedSize(true);
         kategoriRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

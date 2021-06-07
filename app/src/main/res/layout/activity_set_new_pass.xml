@@ -106,6 +106,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/setNewPass_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -115,7 +116,8 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:textSize="17sp"
             android:clickable="true"
-            android:onClick="setnewpass"/>
+            android:onClick="setnewpass"
+            android:transitionName="setNewPass"/>
     </LinearLayout>
 
 </LinearLayout>

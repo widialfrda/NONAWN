@@ -13,11 +13,13 @@
         android:id="@+id/navigation_menu_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:layout_gravity="start"
         app:headerLayout="@layout/menu_samping_header"
         app:menu="@menu/menu_samping"
-        android:theme="@style/navigationtheme">
+        android:theme="@style/navigationtheme"
+        app:itemTextColor="@color/dark_grey"
+        app:itemIconTint="@color/dark_grey"
+        android:backgroundTint="@color/white">
 
         <ImageView
             android:layout_width="match_parent"
@@ -229,14 +231,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:background="@color/lowwhiteyell">
 
                     <LinearLayout
                         android:id="@+id/featured_background"
-                        android:layout_width="160dp"
+                        android:layout_width="120dp"
                         android:layout_height="280dp"
                         android:background="@color/whiteyell"
                         android:layout_margin="10dp"
@@ -258,14 +260,15 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:text="@string/bestseller_desc"
-                            android:layout_marginTop="5dp"/>
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/dark_grey"/>
 
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/featured_recycler"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="310dp"
                         android:layout_toRightOf="@+id/featured_background"
                         android:background="@color/whitegrey"/>
 

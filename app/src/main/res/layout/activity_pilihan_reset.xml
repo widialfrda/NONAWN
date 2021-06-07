@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih yuk, bantuannya mau dikirim kemana nih?"
+            android:text="Pilih yuk, kode OTP nya mau dikirim kemana nih?"
             android:textColor="@color/dark_grey"
             android:gravity="center_horizontal"
             android:textSize="24sp"
@@ -70,24 +70,25 @@
             android:onClick="resetbysms">
 
             <ImageView
-                android:id="@+id/phone_image"
+                android:id="@+id/whatsapp_image"
                 android:layout_width="65dp"
                 android:layout_height="70dp"
-                android:src="@drawable/phone"
+                android:src="@drawable/whatsapp"
+                android:padding="9dp"
                 android:layout_marginLeft="10dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
-                android:layout_toRightOf="@id/phone_image"
+                android:layout_toRightOf="@id/whatsapp_image"
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/tittle_phone_verif"
+                    android:id="@+id/tittle_wa_verif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KIRIM KE NOMOR KAMU"
+                    android:text="KIRIM KE WHATSAPP KAMU"
                     android:textColor="@color/dark_grey"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -96,7 +97,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Kami akan kirim panduan reset kata sandi ke nomor kamu"
+                    android:text="Kami akan kirim panduan reset kata sandi ke nomor whatsapp kamu yang kamu daftarkan"
                     android:layout_below="@+id/tittle_phone_verif"
                     android:textColor="@color/dark_grey"
                     android:layout_marginTop="5dp"
@@ -123,9 +124,9 @@
                 android:id="@+id/email_image"
                 android:layout_width="65dp"
                 android:layout_height="70dp"
-                android:src="@drawable/email"
+                android:layout_marginLeft="10dp"
                 android:padding="5dp"
-                android:layout_marginLeft="10dp"/>
+                android:src="@drawable/email2" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
