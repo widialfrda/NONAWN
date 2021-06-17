@@ -11,6 +11,7 @@
     <color name="button">#986519</color>
     <color name="dark_grey">#605D53</color>
     <color name="grey">#788587</color>
+    <color name="greymuda">#CACAD3</color>
     <color name="whitegrey">#ECECEC</color>
     <color name="white">#FFFFFF</color>
     <color name="whitepurple">#CBFEEBFF</color>
@@ -20,6 +21,7 @@
     <color name="lowwhiteyell">#F1EDD3</color>
     <color name="heavyyellow">#FFF193</color>
     <color name="soft_brown">#EDC68D</color>
+    <color name="silver">#C0C0C0</color>
 
     <color name="bg_category">#C9DADC</color>
 

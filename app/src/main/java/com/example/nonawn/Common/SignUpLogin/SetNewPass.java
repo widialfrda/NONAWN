@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.nonawn.R;
-import com.example.nonawn.User.UserDashboard;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SetNewPass extends AppCompatActivity {
@@ -96,7 +95,7 @@ public class SetNewPass extends AppCompatActivity {
     }
 
     public void backOTP(View view) {
-        startActivity(new Intent(getApplicationContext(),OTPVerify.class));
+        startActivity(new Intent(getApplicationContext(), OTPVerify_forgetpass.class));
         finish();
     }
 }

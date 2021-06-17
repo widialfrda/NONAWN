@@ -18,12 +18,12 @@ public class PilihanReset extends AppCompatActivity {
 
 
     public void resetbysms(View view) {
-        startActivity(new Intent(getApplicationContext(),OTPVerify.class));
+        startActivity(new Intent(getApplicationContext(), OTPVerify_forgetpass.class));
         finish();
     }
 
     public void resetbyemail(View view) {
-        startActivity(new Intent(getApplicationContext(),OTPVerify.class));
+        startActivity(new Intent(getApplicationContext(), OTPVerify_forgetpass.class));
         finish();
     }
 

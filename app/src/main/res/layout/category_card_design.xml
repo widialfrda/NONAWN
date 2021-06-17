@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="250dp"
-    android:layout_height="150dp"
+    android:layout_width="150dp"
+    android:layout_height="300dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
     android:elevation="15dp"
     android:layout_margin="15sp">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/categ_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/merah_jeruk"
+            android:elevation="10dp"/>
 
-        <RelativeLayout
-            android:id="@+id/categ_bg"
+    <RelativeLayout
+        android:id="@+id/categ_bg"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/round_category">
+
+        <TextView
+            android:id="@+id/categ_tittle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="18dp"
-            android:background="@color/bg_category">
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Merah Jeruk"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_marginTop="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categ_tittle"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/black"
+            android:text="Perpaduan cabe merah segar disertai dengan bumbu gurih rahasia dan taburan serbuk daun jeruk yang membuat kamu ketagihan!"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
 
-            <TextView
-                android:id="@+id/categ_tittle"
-                android:layout_width="83dp"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/redrose_variable"
-                android:gravity="center"
-                android:text="Merah Jeruk"
-                android:textColor="@color/dark_grey"
-                android:textSize="21sp"
-                android:textStyle="bold" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/categ_image"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/merah_jeruk" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

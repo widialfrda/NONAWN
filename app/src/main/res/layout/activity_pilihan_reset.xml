@@ -73,7 +73,7 @@
                 android:id="@+id/whatsapp_image"
                 android:layout_width="65dp"
                 android:layout_height="70dp"
-                android:src="@drawable/whatsapp"
+                android:src="@drawable/phone"
                 android:padding="9dp"
                 android:layout_marginLeft="10dp"/>
 
@@ -88,7 +88,7 @@
                     android:id="@+id/tittle_wa_verif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KIRIM KE WHATSAPP KAMU"
+                    android:text="KIRIM KE NOMOR KAMU"
                     android:textColor="@color/dark_grey"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -97,7 +97,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Kami akan kirim panduan reset kata sandi ke nomor whatsapp kamu yang kamu daftarkan"
+                    android:text="Kami akan kirim panduan reset kata sandi ke nomor kamu yang kamu daftarkan"
                     android:layout_below="@+id/tittle_phone_verif"
                     android:textColor="@color/dark_grey"
                     android:layout_marginTop="5dp"

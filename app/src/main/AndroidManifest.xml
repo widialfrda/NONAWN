@@ -3,6 +3,7 @@
     package="com.example.nonawn">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,18 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.Profile">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Common.SignUpLogin.OTPVerify_Signup"/>
+        <activity android:name=".User.FullMenuMakanan" />
+        <activity android:name=".User.Profile" />
         <activity android:name=".Common.SignUpLogin.SuksesForgetPassMsg" />
         <activity android:name=".Common.SignUpLogin.SetNewPass" />
         <activity android:name=".Common.SignUpLogin.PilihanReset" />
         <activity android:name=".Common.SignUpLogin.ForgetPassword" />
-        <activity android:name=".Common.SignUpLogin.OTPVerify" />
+        <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" />
         <activity android:name=".Common.SignUpLogin.Signup" />
         <activity android:name=".Common.SignUpLogin.Login" />
         <activity android:name=".Common.SignUpLogin.RetailerWelcomeScreen" />

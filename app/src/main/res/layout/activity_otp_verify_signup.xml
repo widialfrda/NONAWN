@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Common.SignUpLogin.OTPVerify_Signup"
+    android:background="@color/whitegrey"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/icon_clear_x"
+            android:clickable="true"
+            android:onClick="exitOTP" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/otp2"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verifikasi Dulu Yuk !"
+                android:textSize="30sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/dark_grey"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masukkan Kode OTP yang telah dikirim ke nomor kamu"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/dark_grey"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"/>
+
+            <com.chaos.view.PinView
+                android:id="@+id/otp_pinview_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:itemCount="4"
+                app:itemWidth="40dp"
+                app:itemHeight="40dp"
+                app:lineColor="@color/dark_grey"
+                style="@style/PinWidget.PinView"
+                android:cursorVisible="true"
+                app:cursorColor="@color/black"
+                app:hideLineWhenFilled="true"
+                app:itemRadius="5dp"
+                android:textColor="@color/dark_grey"
+                android:inputType="number"
+                android:layout_marginTop="25dp"
+                android:background="@color/whitegrey"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_submitOTP_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/maroon"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="KIRIM"
+            android:textSize="17sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:onClick="submitOTP_signup"/>
+    </LinearLayout>
+
+
+</LinearLayout>

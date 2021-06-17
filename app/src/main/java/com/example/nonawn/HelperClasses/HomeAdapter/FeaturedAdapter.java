@@ -25,7 +25,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     @NonNull
     @Override
     public FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_card_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bestseller_card_design,parent,false);
         FeaturedViewHolder featuredViewHolder = new FeaturedViewHolder(view);
         return featuredViewHolder;
     }
