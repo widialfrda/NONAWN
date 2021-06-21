@@ -3,6 +3,7 @@ package com.example.nonawn.Common.SignUpLogin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,7 @@ public class OTPVerify_forgetpass extends AppCompatActivity {
                 phoneNo, //Phone number to verify
                 60, //Timeout Duration
                 TimeUnit.SECONDS, //Unit of Timeout
-                TaskExecutors.MAIN_THREAD, //Activity (for callback binding)
+                (Activity) TaskExecutors.MAIN_THREAD, //Activity (for callback binding)
                 mCallbacks);
     }
 

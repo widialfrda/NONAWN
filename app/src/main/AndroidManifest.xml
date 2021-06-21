@@ -19,7 +19,7 @@
         <activity android:name=".Common.SignUpLogin.SetNewPass" />
         <activity android:name=".Common.SignUpLogin.PilihanReset" />
         <activity android:name=".Common.SignUpLogin.ForgetPassword" />
-        <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" />
+<!--        <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" />-->
         <activity android:name=".Common.SignUpLogin.Signup" />
         <activity android:name=".Common.SignUpLogin.Login" />
         <activity android:name=".Common.SignUpLogin.RetailerWelcomeScreen" />

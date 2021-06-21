@@ -27,9 +27,8 @@
         <ImageView
             android:id="@+id/logo_signup"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="120dp"
             android:src="@drawable/logo"
-            android:layout_marginTop="20dp"
             android:transitionName="trans_logo_signup"/>
 
     </LinearLayout>
@@ -109,6 +108,31 @@
                 android:textCursorDrawable="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/signup_passwordvalidasi"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:hint="Ketik Ulang Kata Sandi"-->
+<!--            android:textColorHint="@color/dark_grey"-->
+<!--            app:boxStrokeColor="@color/dark_grey"-->
+<!--            app:boxStrokeWidthFocused="2dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            app:endIconMode="password_toggle"-->
+<!--            app:endIconTint="@color/dark_grey"-->
+<!--            app:hintTextColor="@color/dark_grey">-->
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:fontFamily="sans-serif-condensed-medium"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:textCursorDrawable="@color/black"/>-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signup_no_telp"

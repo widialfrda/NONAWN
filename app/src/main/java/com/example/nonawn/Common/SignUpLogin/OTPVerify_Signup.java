@@ -3,6 +3,7 @@ package com.example.nonawn.Common.SignUpLogin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,82 +45,82 @@ public class OTPVerify_Signup extends AppCompatActivity {
         //hooks
         otpverify_signup = findViewById(R.id.otp_pinview_signup);
 
-        fullname = getIntent().getStringExtra("fullname");
-        email = getIntent().getStringExtra("email");
-        password = getIntent().getStringExtra("password");
-        PhoneNumber = getIntent().getStringExtra("phoneNo");
-
-        sendVerificationCode(PhoneNumber);
+//        fullname = getIntent().getStringExtra("fullname");
+//        email = getIntent().getStringExtra("email");
+//        password = getIntent().getStringExtra("password");
+//        PhoneNumber = getIntent().getStringExtra("phoneNo");
+//
+//        sendVerificationCode(PhoneNumber);
     }
 
-    private void sendVerificationCode(String phoneNo) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNo, //Phone number to verify
-                60, //Timeout Duration
-                TimeUnit.SECONDS, //Unit of Timeout
-                TaskExecutors.MAIN_THREAD, //Activity (for callback binding)
-                mCallbacks);
-    }
-
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
-            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                @Override
-                public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                    super.onCodeSent(s, forceResendingToken);
-                    codebySystem = s;
-                }
-
-                @Override
-                public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                    String code = phoneAuthCredential.getSmsCode();
-                    if(code!=null){
-                        otpverify_signup.setText(code);
-                        verifyCode(code);
-                    }
-
-                }
-
-                @Override
-                public void onVerificationFailed(@NonNull FirebaseException e) {
-                    Toast.makeText(OTPVerify_Signup.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            };
-
-    private void verifyCode(String code) {
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codebySystem,code);
-        signInWithPhoneAuthCredential(credential);
-    }
-
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
-        firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-
-                            storeNewUserData();
-
-                        } else {
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                Toast.makeText(OTPVerify_Signup.this,"Verifikasi Gagal, Coba lagi.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                });
-    }
-
-    private void storeNewUserData() {
-
-        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
-        DatabaseReference reference = rootNode.getReference("Users");
-
-        UserHelperClass addNewUser = new UserHelperClass(fullname,email,password,PhoneNumber);
-
-        reference.child(PhoneNumber).setValue(addNewUser);
-    }
+//    private void sendVerificationCode(String phoneNo) {
+//        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                phoneNo, //Phone number to verify
+//                60, //Timeout Duration
+//                TimeUnit.SECONDS, //Unit of Timeout
+//                (Activity) TaskExecutors.MAIN_THREAD, //Activity (for callback binding)
+//                mCallbacks);
+//    }
+//
+//    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
+//            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//                @Override
+//                public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//                    super.onCodeSent(s, forceResendingToken);
+//                    codebySystem = s;
+//                }
+//
+//                @Override
+//                public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//                    String code = phoneAuthCredential.getSmsCode();
+//                    if(code!=null){
+//                        otpverify_signup.setText(code);
+//                        verifyCode(code);
+//                    }
+//
+//                }
+//
+//                @Override
+//                public void onVerificationFailed(@NonNull FirebaseException e) {
+//                    Toast.makeText(OTPVerify_Signup.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            };
+//
+//    private void verifyCode(String code) {
+//        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codebySystem,code);
+//        signInWithPhoneAuthCredential(credential);
+//    }
+//
+//    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+//
+//        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+//
+//        firebaseAuth.signInWithCredential(credential)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//
+//                            storeNewUserData();
+//
+//                        } else {
+//                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+//                                Toast.makeText(OTPVerify_Signup.this,"Verifikasi Gagal, Coba lagi.", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    }
+//                });
+//    }
+//
+//    private void storeNewUserData() {
+//
+//        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+//        DatabaseReference reference = rootNode.getReference("Users");
+//
+//        UserHelperClass addNewUser = new UserHelperClass(fullname,email,password,PhoneNumber);
+//
+//        reference.child(PhoneNumber).setValue(addNewUser);
+//    }
 
     public void submitOTP_signup(View view) {
 

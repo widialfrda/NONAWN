@@ -41,6 +41,7 @@ public class Signup extends AppCompatActivity {
         fullname = findViewById(R.id.signup_fullname);
         email = findViewById(R.id.signup_email);
         password = findViewById(R.id.signup_password);
+//        passwordvalidasi = findViewById(R.id.signup_passwordvalidasi);
         no_telp = findViewById(R.id.signup_no_telp);
     }
 
@@ -107,6 +108,29 @@ public class Signup extends AppCompatActivity {
         }
     }
 
+//    private boolean validatePasswordValidasi(){
+//        String val = passwordvalidasi.getEditText().getText().toString().trim();
+//        String checkPassvalidasi =
+//
+//        if (val.isEmpty()){
+//            password.setError("Harus diisi");
+//            return false;
+//        }
+//        else if(!val.matches(String.valueOf(password))){
+//            password.setError("Harus sama dengan password diatas");
+//            return false;
+//        }
+//        else if(!val.matches(checkPassvalidasi)) {
+//            password.setError("Harus mengandung minimal 6 karakter, disertai angka dan karakter khusus");
+//            return false;
+//        }
+//        else{
+//            password.setError(null);
+//            password.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+
     private boolean validateNoTelp(){
         String val = no_telp.getEditText().getText().toString().trim();
         String checkno_telp = "(?=.*[0-9])"+"(?=\\S+$)"+".{11,13}";
@@ -136,13 +160,15 @@ public class Signup extends AppCompatActivity {
         String getFullname = getIntent().getStringExtra("fullname");
         String getEmail = getIntent().getStringExtra("email");
         String getPassword = getIntent().getStringExtra("password");
+        String getPasswordValidasi = getIntent().getStringExtra("passwordValidasi");
         String getNoTelp = getIntent().getStringExtra("no_telp");
 
-        Intent intent = new Intent(getApplicationContext(),RetailerWelcomeScreen.class);
+        Intent intent = new Intent(getApplicationContext(),OTPVerify_Signup.class);
 
         intent.putExtra("fullname",getFullname);
         intent.putExtra("email",getEmail);
         intent.putExtra("password",getPassword);
+        intent.putExtra("passwordValidasi",getPasswordValidasi);
         intent.putExtra("no_telp",getNoTelp);
 
         Pair[] pairs = new Pair[1];
