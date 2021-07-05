@@ -130,8 +130,8 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
         String val = otpverify_signup.getText().toString().trim();
 
-        if (val.length() < 4){
-            otpverify_signup.setError("Isi harus berupa 4 angka");
+        if (val.length() < 6){
+            otpverify_signup.setError("Isi harus berupa 6 angka");
             otpverify_signup.requestFocus();
             return;
         }

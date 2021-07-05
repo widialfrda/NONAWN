@@ -12,14 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Common.SignUpLogin.OTPVerify_Signup"/>
+        <activity android:name=".Common.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Common.SignUpLogin.OTPVerify_Signup" />
         <activity android:name=".User.FullMenuMakanan" />
         <activity android:name=".User.Profile" />
         <activity android:name=".Common.SignUpLogin.SuksesForgetPassMsg" />
         <activity android:name=".Common.SignUpLogin.SetNewPass" />
         <activity android:name=".Common.SignUpLogin.PilihanReset" />
-        <activity android:name=".Common.SignUpLogin.ForgetPassword" />
-<!--        <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" />-->
+        <activity android:name=".Common.SignUpLogin.ForgetPassword" /> <!-- <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" /> -->
         <activity android:name=".Common.SignUpLogin.Signup" />
         <activity android:name=".Common.SignUpLogin.Login" />
         <activity android:name=".Common.SignUpLogin.RetailerWelcomeScreen" />
@@ -27,13 +33,6 @@
         <activity android:name=".Common.OnBoarding" />
         <activity android:name=".User.UserDashboard" />
         <activity android:name=".User.ReviewProduk2" />
-        <activity android:name=".Common.splashscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.nonawn.R;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity {
 
@@ -26,6 +28,9 @@ public class Signup extends AppCompatActivity {
 
     //variabel getting data
     TextInputLayout fullname, email, password, no_telp;
+
+    FirebaseDatabase rootNode_signup;
+    DatabaseReference reference_signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

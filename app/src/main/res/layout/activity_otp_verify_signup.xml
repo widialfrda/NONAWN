@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                app:itemCount="4"
+                app:itemCount="6"
                 app:itemWidth="40dp"
                 app:itemHeight="40dp"
                 app:lineColor="@color/dark_grey"
