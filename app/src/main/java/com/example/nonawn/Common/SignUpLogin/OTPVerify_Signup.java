@@ -130,15 +130,29 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
         String val = otpverify_signup.getText().toString().trim();
 
-        if (val.length() < 6){
+        if (val.isEmpty() || val.length() < 6){
             otpverify_signup.setError("Isi harus berupa 6 angka");
             otpverify_signup.requestFocus();
             return;
         }
-        else {
+
+        verifyCode(val);
+        /*else {
             Toast.makeText(this, "Berhasil!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), UserDashboard.class));
             finish();
+        }*/
+
+    }
+
+    private void verifyCode(String val) {
+        try {
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, val);
+            signInWithPhoneAuthCredential(credential);
+        }
+
+        catch (Exception e){
+            Toast.makeText(OTPVerify_Signup.this, " Kode salah ", Toast.LENGTH_LONG).show();
         }
     }
 
