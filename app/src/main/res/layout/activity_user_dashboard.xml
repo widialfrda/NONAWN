@@ -338,7 +338,9 @@
                             android:layout_alignParentRight="true"
                             android:textColor="@color/dark_grey"
                             android:textSize="15sp"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:onClick="seemore_varian"/>
 
                     </RelativeLayout>
 

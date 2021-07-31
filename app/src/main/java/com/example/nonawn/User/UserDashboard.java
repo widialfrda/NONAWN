@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.nonawn.Common.SignUpLogin.RetailerWelcomeScreen;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.nonawn.HelperClasses.HomeAdapter.KategoriAdapter;
@@ -203,6 +204,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             drawerLayout.closeDrawer(GravityCompat.START);
         }else
             super.onBackPressed();
+    }
+
+    public void seemore_varian(View view) {
+        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class));
+        finish();
     }
 }
 
