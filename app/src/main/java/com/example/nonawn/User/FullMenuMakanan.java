@@ -1,6 +1,7 @@
 package com.example.nonawn.User;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.core.view.GravityCompat;
@@ -8,9 +9,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.CartLoadListener;
@@ -20,11 +23,16 @@ import com.example.nonawn.HelperClasses.MenuModel.SpaceItemDecoration;
 import com.example.nonawn.HelperClasses.MenuModel.VarianAdapter;
 import com.example.nonawn.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nex3z.notificationbadge.NotificationBadge;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +42,7 @@ import butterknife.ButterKnife;
 
 public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListener, CartLoadListener {
 
-//    @BindView(R.id.recyclerview_varianspicy)
+    //    @BindView(R.id.recyclerview_varianspicy)
 //    RecyclerView recyclerspicy;
     @BindView(R.id.recyclerview_variannonspicy)
     RecyclerView recyclernonspicy;
@@ -47,6 +55,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
 
     MenuLoadListener menuLoadListener;
     CartLoadListener cartLoadListener;
+    Query databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,30 +66,46 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         loadMenufromFirebase();
     }
 
-    private void loadMenufromFirebase() {
-        List<MenuHelperClass> menuHelperClasses = new ArrayList<>();
-        FirebaseDatabase.getInstance()
-                .getReference("Varian Rasa")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            for(DataSnapshot menuSnapshot:snapshot.getChildren()){
-                                MenuHelperClass menuHelperClass = menuSnapshot.getValue(MenuHelperClass.class);
-                                menuHelperClass.setKey(menuSnapshot.getKey());
-                                menuHelperClasses.add(menuHelperClass);
-                            }
-                            menuLoadListener.onMenuLoadSuccess(menuHelperClasses);
-                        }
-                        else
-                            menuLoadListener.onMenuLoadFailed("Varian Rasa Tidak Ditemukan");
+    private void loadMenufromFirebase() { //get data from FB
 
+        String gambar, harga;
+        List<MenuHelperClass> menuHelperClasses = new ArrayList<>();
+        databaseReference = FirebaseDatabase.getInstance().getReference().orderByChild("Varian Rasa");
+
+        FirebaseDatabase.getInstance().getReference("Varian Rasa")
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
+                        Log.e("KEY",""+snapshot.child("Varian Rasa").getValue().toString());
+                        Log.e("gambar uri",""+snapshot.child("Gambar").getValue().toString());
+                        Log.e("harga",""+snapshot.child("Harga").getValue().toString());
+
+                        MenuHelperClass menuHelperClass = snapshot.getValue(MenuHelperClass.class);
+                        menuHelperClass.setVarian(snapshot.child("Varian Rasa").getValue().toString());
+                        menuHelperClass.setImage(snapshot.child("Gambar").getValue().toString());
+                        menuHelperClass.setHarga(snapshot.child("Harga").getValue().toString());
+                        menuHelperClasses.add(menuHelperClass);
+
+                        menuLoadListener.onMenuLoadSuccess(menuHelperClasses);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
 
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        menuLoadListener.onMenuLoadFailed(error.getMessage());
+                    public void onChildRemoved(@NonNull @NotNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
                     }
                 });

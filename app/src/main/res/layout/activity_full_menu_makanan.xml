@@ -95,7 +95,7 @@
         <LinearLayout
             android:id="@+id/layout_nonspicy"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="match_parent"
             android:layout_alignBottom="@id/act_bar"
             android:padding="10dp"
             android:orientation="vertical">
