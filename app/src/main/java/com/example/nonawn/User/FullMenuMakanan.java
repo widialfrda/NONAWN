@@ -69,17 +69,16 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         String gambar, harga;
         List<MenuHelperClass> menuHelperClasses = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference("Varian Rasa").orderByChild("Varian rasa")
+        FirebaseDatabase.getInstance().getReference("Varian Rasa").orderByChild("Varian Rasa")
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
-                        Log.e("KEY",""+snapshot.child("Gurih").getValue().toString());
+                        Log.e("produk",""+snapshot.child("Produk").getValue().toString());
                         Log.e("gambar uri",""+snapshot.child("Gambar").getValue().toString());
                         Log.e("harga",""+snapshot.child("Harga").getValue().toString());
 
                         MenuHelperClass menuHelperClass = snapshot.getValue(MenuHelperClass.class);
-                        //menuHelperClass.setKey(snapshot.getKey());
-                        menuHelperClass.setVarian(snapshot.getKey());
+                        menuHelperClass.setVarian(snapshot.child("Produk").getValue().toString());
                         menuHelperClass.setImage(snapshot.child("Gambar").getValue().toString());
                         menuHelperClass.setHarga(snapshot.child("Harga").getValue().toString());
                         menuHelperClasses.add(menuHelperClass);

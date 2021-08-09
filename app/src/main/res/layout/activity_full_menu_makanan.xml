@@ -66,56 +66,12 @@
         android:orientation="vertical"
         android:layout_below="@id/act_bar">
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout_spicy"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="350dp"-->
-<!--            android:layout_below="@id/act_bar"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Varian Pedas"-->
-<!--                android:textColor="@color/dark_grey"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="18sp" />-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/recyclerview_varianspicy"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginTop="20dp" />-->
-
-<!--        </LinearLayout>-->
-
-        <LinearLayout
-            android:id="@+id/layout_nonspicy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@id/act_bar"
-            android:padding="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Varian Tidak Pedas"
-                android:textColor="@color/dark_grey"
-                android:textStyle="bold"
-                android:textSize="18sp" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_variannonspicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp" />
-
-        </LinearLayout>
+                android:paddingLeft="15dp"
+                android:paddingRight="10dp"/>
     </LinearLayout>
 
 </RelativeLayout>

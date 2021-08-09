@@ -40,7 +40,7 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
         Glide.with(context)
                 .load(menuHelperClassList.get(position).getImage())
                 .into(holder.cardvarian_image);
-        holder.varian_harga.setText(new StringBuilder("Rp. ").append(menuHelperClassList.get(position).getHarga()));
+        holder.varian_harga.setText(new StringBuilder("IDR ").append(menuHelperClassList.get(position).getHarga()));
         holder.varian_nama.setText(new StringBuilder().append(menuHelperClassList.get(position).getVarian()));
 
     }
