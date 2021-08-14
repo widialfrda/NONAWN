@@ -23,7 +23,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/arrowback_garis"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:clickable="true"/>
 
             <TextView
                 android:layout_width="wrap_content"

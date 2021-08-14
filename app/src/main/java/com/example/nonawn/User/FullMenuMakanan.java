@@ -3,20 +3,17 @@ package com.example.nonawn.User;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuAdapter;
-import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
-import android.widget.GridLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
-import com.example.nonawn.HelperClasses.MenuModel.CartLoadListener;
+import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
+import com.example.nonawn.HelperClasses.MenuModel.Listener.CartLoadListener;
 import com.example.nonawn.HelperClasses.MenuModel.MenuHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.MenuLoadListener;
 import com.example.nonawn.HelperClasses.MenuModel.SpaceItemDecoration;
@@ -26,11 +23,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nex3z.notificationbadge.NotificationBadge;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -56,12 +55,33 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
     CartLoadListener cartLoadListener;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        if (EventBus.getDefault().hasSubscriberForEvent(UpdateCartItem.class))
+            EventBus.getDefault().removeStickyEvent(UpdateCartItem.class);
+        EventBus.getDefault().unregister(this);
+
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onUpdateCart(UpdateCartItem event){
+        countCartItem();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_menu_makanan);
 
         init();
         loadMenufromFirebase();
+        countCartItem();
     }
 
     private void loadMenufromFirebase() {
@@ -147,7 +167,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
 
     @Override
     public void onMenuLoadSuccess(List<MenuHelperClass> menuHelperClassList) {
-        VarianAdapter adapter = new VarianAdapter(this, menuHelperClassList);
+        VarianAdapter adapter = new VarianAdapter(this, menuHelperClassList, cartLoadListener);
         recyclernonspicy.setAdapter(adapter);
     }
 
@@ -156,13 +176,49 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         Snackbar.make(layout_menu, message, Snackbar.LENGTH_LONG).show();
     }
 
+
     @Override
     public void onCartLoadSuccess(List<CartHelperClass> cartHelperClassList) {
+        int cartSum = 0;
+        for (CartHelperClass cartHelperClass : cartHelperClassList)
+            cartSum += cartHelperClass.getQty_barang();
+        qty_cart.setNumber(cartSum);
+    }
+
+    @Override
+    public void onCartLoadFailed(String message) {
+        Snackbar.make(layout_menu,message,Snackbar.LENGTH_LONG).show();
 
     }
 
     @Override
-    public void onCartLoadFailed(List<CartHelperClass> CartList) {
+    protected void onResume() {
+        super.onResume();
+        countCartItem();
+    }
 
+    private void countCartItem() {
+        List<CartHelperClass> cartHelperClasses = new ArrayList<>();
+        FirebaseDatabase
+                .getInstance().getReference("Cart")
+                .child("User_ID")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot cartSnapshot:snapshot.getChildren()){
+                            CartHelperClass cartHelperClass = cartSnapshot.getValue(CartHelperClass.class);
+                            cartHelperClass.setKey(cartSnapshot.getKey());
+                            cartHelperClasses.add(cartHelperClass);
+                        }
+                        cartLoadListener.onCartLoadSuccess(cartHelperClasses);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        cartLoadListener.onCartLoadFailed(error.getMessage());
+
+                    }
+                });
     }
 }

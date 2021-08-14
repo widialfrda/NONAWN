@@ -88,11 +88,6 @@ public class OTPVerify_Signup extends AppCompatActivity {
             }
         };
 
-//        fullname = getIntent().getStringExtra("fullname");
-//        email = getIntent().getStringExtra("email");
-//        password = getIntent().getStringExtra("password");
-//        PhoneNumber = getIntent().getStringExtra("phoneNo");
-//
         sendVerificationCode(phone);
     }
 

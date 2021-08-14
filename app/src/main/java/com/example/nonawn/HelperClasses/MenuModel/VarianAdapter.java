@@ -11,9 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
+import com.example.nonawn.HelperClasses.MenuModel.Listener.CartLoadListener;
+import com.example.nonawn.HelperClasses.MenuModel.Listener.RecyclerViewClickListener;
 import com.example.nonawn.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,10 +37,12 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
 
     private Context context;
     private List<MenuHelperClass>menuHelperClassList;
+    private CartLoadListener cartLoadListener;
 
-    public VarianAdapter(Context context, List<MenuHelperClass> menuHelperClassList) {
+    public VarianAdapter(Context context, List<MenuHelperClass> menuHelperClassList, CartLoadListener cartLoadListener) {
         this.context = context;
         this.menuHelperClassList = menuHelperClassList;
+        this.cartLoadListener = cartLoadListener;
     }
 
     @NonNull
@@ -43,14 +59,77 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
         holder.varian_harga.setText(new StringBuilder("IDR ").append(menuHelperClassList.get(position).getHarga()));
         holder.varian_nama.setText(new StringBuilder().append(menuHelperClassList.get(position).getVarian()));
 
+        holder.setListener((view, adapterPosition) -> {
+            addToCart(menuHelperClassList.get(position));
+
+        });
+
     }
+
+    private void addToCart(MenuHelperClass menuHelperClass) {
+        DatabaseReference userCart = FirebaseDatabase
+                .getInstance()
+                .getReference("Cart")
+                .child("User_ID");
+
+        userCart.child(menuHelperClass.getKey())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){ //kondisi jika ada produk di keranjang
+
+                            //update jumlah produk dan total harga
+                            CartHelperClass cartHelperClass = snapshot.getValue(CartHelperClass.class);
+                            cartHelperClass.setQty_barang(cartHelperClass.getQty_barang()+1);
+                            Map<String,Object> updateData = new HashMap<>();
+                            updateData.put("qty_brg",cartHelperClass.getQty_barang());
+                            updateData.put("total_harga",cartHelperClass.getQty_barang()*Float.parseFloat(cartHelperClass.getHarga()));
+
+                            userCart.child(cartHelperClass.getKey())
+                                    .updateChildren(updateData)
+                                    .addOnSuccessListener(aVoid -> {
+                                       cartLoadListener.onCartLoadFailed("Berhasil menambahkan ke keranjang");
+                                    })
+                            .addOnFailureListener(e -> cartLoadListener.onCartLoadFailed(e.getMessage()));
+
+                        }
+                        else {//jika tidak ada produk dalam cart, add new
+                            CartHelperClass cartHelperClass = new CartHelperClass();
+                            cartHelperClass.setImage(menuHelperClass.getImage());
+                            cartHelperClass.setVarian(menuHelperClass.getVarian());
+                            cartHelperClass.setHarga(menuHelperClass.getHarga());
+                            cartHelperClass.setKey(menuHelperClass.getKey());
+
+                            cartHelperClass.setQty_barang(1);
+                            cartHelperClass.setTotal_harga(Float.parseFloat(menuHelperClass.getHarga()));
+
+                            userCart.child(menuHelperClass.getKey())
+                                    .setValue(cartHelperClass)
+                                    .addOnSuccessListener(aVoid -> {
+                                        cartLoadListener.onCartLoadFailed("Berhasil menambahkan ke keranjang");
+                                    })
+                                    .addOnFailureListener(e -> cartLoadListener.onCartLoadFailed(e.getMessage()));
+                        }
+                        EventBus.getDefault().postSticky(new UpdateCartItem());
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        cartLoadListener.onCartLoadFailed(error.getMessage());
+
+                    }
+                });
+
+    }
+
 
     @Override
     public int getItemCount() {
         return menuHelperClassList.size();
     }
 
-    public class VarianViewHolder extends RecyclerView.ViewHolder{
+    public class VarianViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.variancard_image)
         ImageView cardvarian_image;
         @BindView(R.id.varian_name)
@@ -58,11 +137,22 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
         @BindView(R.id.varian_price)
         TextView varian_harga;
 
-        private Unbinder unbinder;
+        RecyclerViewClickListener listener;
 
+        public void setListener(RecyclerViewClickListener listener) {
+            this.listener = listener;
+        }
+
+        private Unbinder unbinder;
         public VarianViewHolder(@NonNull View itemView) {
             super(itemView);
             unbinder = ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onRecyclerClick(v,getAdapterPosition());
         }
     }
 
