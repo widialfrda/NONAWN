@@ -1,6 +1,7 @@
 package com.example.nonawn.HelperClasses.MenuModel;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,10 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()){ //kondisi jika ada produk di keranjang
+
+                            Log.e("produk",""+snapshot.child("Produk").getValue().toString());
+                            Log.e("gambar uri",""+snapshot.child("Gambar").getValue().toString());
+                            Log.e("harga",""+snapshot.child("Harga").getValue().toString());
 
                             //update jumlah produk dan total harga
                             CartHelperClass cartHelperClass = snapshot.getValue(CartHelperClass.class);
