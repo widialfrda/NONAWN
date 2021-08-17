@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.Cart"
+    android:id="@+id/layout_cart"
+    android:background="@color/whitegrey">
+    
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/greymuda"
+        android:orientation="horizontal"
+        android:weightSum="16"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        
+        <ImageView
+            android:id="@+id/cart_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrowback_garis"/>
+
+        <TextView
+            android:id="@+id/txt_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keranjang Saya"
+            android:textColor="@color/dark_grey"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="25sp"
+            android:layout_marginLeft="15dp"/>
+
+    </LinearLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_below="@+id/panel"/>
+
+</RelativeLayout>

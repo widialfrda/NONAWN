@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
@@ -163,6 +164,8 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclernonspicy.setLayoutManager(gridLayoutManager);
         recyclernonspicy.addItemDecoration(new SpaceItemDecoration());
+
+        btn_cart.setOnClickListener(v -> startActivity(new Intent(this, Cart.class)));
     }
 
     @Override

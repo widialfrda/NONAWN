@@ -73,15 +73,14 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
                 .getReference("Cart")
                 .child("User_ID");
 
-        userCart.child(menuHelperClass.getKey())
+        Log.e("KEY",""+menuHelperClass.getKey());
+        Log.e("VARIAN",""+menuHelperClass.getVarian());
+
+        userCart.child(menuHelperClass.getVarian())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()){ //kondisi jika ada produk di keranjang
-
-                            Log.e("produk",""+snapshot.child("Produk").getValue().toString());
-                            Log.e("gambar uri",""+snapshot.child("Gambar").getValue().toString());
-                            Log.e("harga",""+snapshot.child("Harga").getValue().toString());
 
                             //update jumlah produk dan total harga
                             CartHelperClass cartHelperClass = snapshot.getValue(CartHelperClass.class);
@@ -90,25 +89,27 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
                             updateData.put("qty_brg",cartHelperClass.getQty_barang());
                             updateData.put("total_harga",cartHelperClass.getQty_barang()*Float.parseFloat(cartHelperClass.getHarga()));
 
-                            userCart.child(cartHelperClass.getKey())
+                            userCart.child(cartHelperClass.getVarian())
                                     .updateChildren(updateData)
                                     .addOnSuccessListener(aVoid -> {
-                                       cartLoadListener.onCartLoadFailed("Berhasil menambahkan ke keranjang");
+                                        cartLoadListener.onCartLoadFailed("Berhasil menambahkan ke keranjang");
                                     })
-                            .addOnFailureListener(e -> cartLoadListener.onCartLoadFailed(e.getMessage()));
+                                    .addOnFailureListener(e -> cartLoadListener.onCartLoadFailed(e.getMessage()));
 
                         }
                         else {//jika tidak ada produk dalam cart, add new
+                            String price = menuHelperClass.getHarga().substring(0, menuHelperClass.getHarga().length()-1);
+
                             CartHelperClass cartHelperClass = new CartHelperClass();
                             cartHelperClass.setImage(menuHelperClass.getImage());
                             cartHelperClass.setVarian(menuHelperClass.getVarian());
-                            cartHelperClass.setHarga(menuHelperClass.getHarga());
-                            cartHelperClass.setKey(menuHelperClass.getKey());
+                            cartHelperClass.setHarga(price);
+                            //cartHelperClass.setKey(menuHelperClass.getKey());
 
                             cartHelperClass.setQty_barang(1);
-                            cartHelperClass.setTotal_harga(Float.parseFloat(menuHelperClass.getHarga()));
+                            cartHelperClass.setTotal_harga(Float.parseFloat(price));
 
-                            userCart.child(menuHelperClass.getKey())
+                            userCart.child(menuHelperClass.getVarian())
                                     .setValue(cartHelperClass)
                                     .addOnSuccessListener(aVoid -> {
                                         cartLoadListener.onCartLoadFailed("Berhasil menambahkan ke keranjang");
