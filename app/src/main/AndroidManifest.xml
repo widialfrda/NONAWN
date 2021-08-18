@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.Cart"/>
+        <activity android:name=".Common.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Common.SignUpLogin.OTPVerify_Signup" />
         <activity android:name=".User.FullMenuMakanan" />
         <activity android:name=".User.Profile" />
@@ -27,6 +33,7 @@
         <activity android:name=".Common.OnBoarding" />
         <activity android:name=".User.UserDashboard" />
         <activity android:name=".User.ReviewProduk2" />
+        <activity android:name=".User.Cart"/>
 
         <meta-data
             android:name="preloaded_fonts"
