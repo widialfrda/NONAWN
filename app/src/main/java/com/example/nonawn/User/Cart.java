@@ -1,26 +1,36 @@
 package com.example.nonawn.User;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.nonawn.HelperClasses.MenuModel.CartAdapter;
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
+import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
 import com.example.nonawn.HelperClasses.MenuModel.Listener.CartLoadListener;
+import com.example.nonawn.HelperClasses.MenuModel.MenuHelperClass;
 import com.example.nonawn.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -40,6 +50,27 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     CartLoadListener cartLoadListener;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        if (EventBus.getDefault().hasSubscriberForEvent(UpdateCartItem.class))
+            EventBus.getDefault().removeStickyEvent(UpdateCartItem.class);
+        EventBus.getDefault().unregister(this);
+
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onUpdateCart(UpdateCartItem event){
+
+        loadCartFromFirebase();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
@@ -49,11 +80,22 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     }
 
     private void loadCartFromFirebase() {
+        List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference("Cart").child("User_ID")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            for (DataSnapshot cartSnapshot:snapshot.getChildren()){
+                                CartHelperClass cartHelperClass = cartSnapshot.getValue(CartHelperClass.class);
+                                cartHelperClass.setKey(cartSnapshot.getKey());
 
+                                cartHelperClasses.add(cartHelperClass);
+                            }
+                            cartLoadListener.onCartLoadSuccess(cartHelperClasses);
+                        }
+                        else
+                            cartLoadListener.onCartLoadFailed("Keranjang Kosong");
 
                     }
 
