@@ -66,7 +66,7 @@
             android:id="@+id/txt_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Harga"
+            android:text="0.0"
             android:textColor="@color/dark_grey"
             android:fontFamily="sans-serif-condensed-medium"
             android:textSize="15sp"
