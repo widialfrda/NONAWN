@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -80,6 +81,7 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     }
 
     private void loadCartFromFirebase() {
+
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference("Cart").child("User_ID")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -133,5 +135,8 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     public void onCartLoadFailed(String message) {
         Snackbar.make(layout_cart,message,Snackbar.LENGTH_LONG).show();
 
+    }
+
+    public void back_fullMenuMakanan(View view) {
     }
 }

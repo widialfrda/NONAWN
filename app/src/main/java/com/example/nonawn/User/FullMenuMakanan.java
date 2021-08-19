@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.example.nonawn.Common.SignUpLogin.PilihanReset;
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
 import com.example.nonawn.HelperClasses.MenuModel.Listener.CartLoadListener;
@@ -223,5 +225,9 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
 
                     }
                 });
+    }
+
+    public void back_dashboard(View view) {
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
     }
 }

@@ -3,6 +3,7 @@ package com.example.nonawn.HelperClasses.MenuModel;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new CartViewHolder(LayoutInflater.from(context)
-        .inflate(R.layout.activity_cart,parent,false));
+                .inflate(R.layout.activity_cart,parent,false));
     }
 
     @Override
@@ -84,16 +85,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 .child(cartHelperClass.getKey())
                 .removeValue()
                 .addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new UpdateCartItem()));
+        Log.e("KEY",""+cartHelperClass.getKey());
+        Log.e("VARIAN",""+cartHelperClass.getVarian());
     }
 
     private void plusCartItem(CartViewHolder holder, CartHelperClass cartHelperClass) {
 
-            cartHelperClass.setQty_barang(cartHelperClass.getQty_barang() + 1);
-            cartHelperClass.setTotal_harga(cartHelperClass.getQty_barang()*Float.parseFloat(cartHelperClass.getHarga()));
+        cartHelperClass.setQty_barang(cartHelperClass.getQty_barang() + 1);
+        cartHelperClass.setTotal_harga(cartHelperClass.getQty_barang()*Float.parseFloat(cartHelperClass.getHarga()));
 
-            //Update kuantitas
-            holder.txt_qty.setText(new StringBuilder().append(cartHelperClass.getQty_barang()));
-            updateFirebase(cartHelperClass);
+        //Update kuantitas
+        holder.txt_qty.setText(new StringBuilder().append(cartHelperClass.getQty_barang()));
+        updateFirebase(cartHelperClass);
     }
 
     private void minusCartItem(CartViewHolder holder, CartHelperClass cartHelperClass) {
@@ -113,6 +116,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 .child("User_ID")
                 .child(cartHelperClass.getKey())
                 .setValue(cartHelperClass).addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new UpdateCartItem()));
+        Log.e("KEY",""+cartHelperClass.getKey());
+        Log.e("VARIAN",""+cartHelperClass.getVarian());
     }
 
     @Override
@@ -125,15 +130,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         ImageView btn_minus;
         @BindView(R.id.btn_plus)
         ImageView btn_plus;
-        @BindView(R.id.delete_cart)
+        @BindView(R.id.cart_delete)
         ImageView delete_cart;
-        @BindView(R.id.variancard_image)
+        @BindView(R.id.cart_image)
         ImageView variancard_image;
-        @BindView(R.id.cart_varian)
+        @BindView(R.id.cart_namavarian)
         TextView cart_varian;
-        @BindView(R.id.txt_harga_cart)
+        @BindView(R.id.cart_harga)
         TextView txt_harga_cart;
-        @BindView(R.id.txt_qty)
+        @BindView(R.id.cart_qty_barang)
         TextView txt_qty;
 
         Unbinder unbinder;
