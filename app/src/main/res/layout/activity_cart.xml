@@ -99,9 +99,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/btn_checkout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/maroon">
+            android:background="@color/maroon"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/cekot"
