@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.nonawn.Common.SignUpLogin.RetailerWelcomeScreen;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.nonawn.HelperClasses.HomeAdapter.KategoriAdapter;
