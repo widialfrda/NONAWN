@@ -42,9 +42,7 @@ public class OTPVerify_Signup extends AppCompatActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
     PinView otpverify_signup;
-    String codebySystem;
 
-    String fullname, email, password, PhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
