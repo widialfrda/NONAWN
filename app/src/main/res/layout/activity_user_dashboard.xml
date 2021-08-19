@@ -85,154 +85,154 @@
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/dark_grey"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/welcoming_usrdash"
-                        android:background="@color/white"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:elevation="8dp">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_below="@+id/welcoming_usrdash"-->
+<!--                        android:background="@color/white"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:layout_marginLeft="40dp"-->
+<!--                        android:layout_marginRight="40dp"-->
+<!--                        android:elevation="8dp">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/search"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="15dp"
-                            android:fontFamily="sans-serif-light"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/search"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_marginLeft="15dp"-->
+<!--                            android:fontFamily="sans-serif-light"/>-->
 
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/search_icon"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="15dp">
-                        </ImageView>
+<!--                        <ImageView-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:src="@drawable/search_icon"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_marginRight="15dp">-->
+<!--                        </ImageView>-->
 
-                    </RelativeLayout>
+<!--                    </RelativeLayout>-->
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_marginTop="5dp">-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
 
-                        <RelativeLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:elevation="8dp"
-                            android:layout_margin="10dp">
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:elevation="8dp"-->
+<!--                            android:layout_margin="10dp">-->
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:src="@drawable/promo"
-                                android:background="@drawable/card_1"
-                                android:layout_centerInParent="true"
-                                android:clickable="true"/>
+<!--                            <ImageView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:padding="5dp"-->
+<!--                                android:src="@drawable/promo"-->
+<!--                                android:background="@drawable/card_1"-->
+<!--                                android:layout_centerInParent="true"-->
+<!--                                android:clickable="true"/>-->
 
-                        </RelativeLayout>
+<!--                        </RelativeLayout>-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/diskon"
-                            android:textAlignment="center"
-                            android:layout_gravity="center_horizontal"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="14sp"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/diskon"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:fontFamily="sans-serif"-->
+<!--                            android:textColor="@color/dark_grey"-->
+<!--                            android:textSize="14sp"/>-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
 
-                        <RelativeLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:elevation="8dp"
-                            android:layout_margin="10dp">
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:elevation="8dp"-->
+<!--                            android:layout_margin="10dp">-->
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/kategori2"
-                                android:background="@drawable/card_2"
-                                android:layout_centerInParent="true"
-                                android:padding="3dp"
-                                android:clickable="true"/>
+<!--                            <ImageView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:src="@drawable/kategori2"-->
+<!--                                android:background="@drawable/card_2"-->
+<!--                                android:layout_centerInParent="true"-->
+<!--                                android:padding="3dp"-->
+<!--                                android:clickable="true"/>-->
 
-                        </RelativeLayout>
+<!--                        </RelativeLayout>-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/kategori"
-                            android:textAlignment="center"
-                            android:layout_gravity="center_horizontal"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="14sp"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/kategori"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:fontFamily="sans-serif"-->
+<!--                            android:textColor="@color/dark_grey"-->
+<!--                            android:textSize="14sp"/>-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
 
-                        <RelativeLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:elevation="8dp"
-                            android:layout_margin="10dp">
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:elevation="8dp"-->
+<!--                            android:layout_margin="10dp">-->
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/card_3"
-                                android:clickable="true"
-                                android:padding="8dp"
-                                android:layout_marginTop="3dp"
-                                android:src="@drawable/testi2" />
+<!--                            <ImageView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_centerHorizontal="true"-->
+<!--                                android:background="@drawable/card_3"-->
+<!--                                android:clickable="true"-->
+<!--                                android:padding="8dp"-->
+<!--                                android:layout_marginTop="3dp"-->
+<!--                                android:src="@drawable/testi2" />-->
 
-                        </RelativeLayout>
+<!--                        </RelativeLayout>-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/testimoni"
-                            android:textAlignment="center"
-                            android:layout_gravity="center_horizontal"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="14sp"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/testimoni"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:fontFamily="sans-serif"-->
+<!--                            android:textColor="@color/dark_grey"-->
+<!--                            android:textSize="14sp"/>-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginLeft="20dp"
                     android:background="@color/lowwhiteyell">
 
@@ -351,42 +351,42 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp"
-                    android:padding="20dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginTop="30dp"-->
+<!--                    android:padding="20dp">-->
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/testi_tittle"
-                            android:textSize="20sp"
-                            android:textColor="@color/dark_grey"
-                            android:fontFamily="sans-serif-black"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/testi_tittle"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textColor="@color/dark_grey"-->
+<!--                            android:fontFamily="sans-serif-black"/>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/view_all"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="15sp"
-                            android:layout_centerVertical="true"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/view_all"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:textColor="@color/dark_grey"-->
+<!--                            android:textSize="15sp"-->
+<!--                            android:layout_centerVertical="true"/>-->
 
-                    </RelativeLayout>
+<!--                    </RelativeLayout>-->
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/testi_recycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/testi_recycler"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
             </LinearLayout>
         </ScrollView>

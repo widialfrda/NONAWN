@@ -56,7 +56,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         featuredRecycler = findViewById(R.id.featured_recycler);
         kategoriRecycler = findViewById(R.id.kategori_recycler);
         promoRecycler = findViewById(R.id.promo_recycler);
-        testiRecycler = findViewById(R.id.testi_recycler);
+//        testiRecycler = findViewById(R.id.testi_recycler);
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
 
@@ -70,7 +70,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         featuredRecycler();
         kategoriRecycler();
         promoRecycler();
-        testiRecycler();
+//        testiRecycler();
         navigationDrawer();
     }
 
@@ -182,20 +182,20 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         promoRecycler.setAdapter(adapter);
     }
 
-    private void testiRecycler() {
-
-        ArrayList<TestiHelperClass> testiLocations = new ArrayList<>();
-
-        testiLocations.add(new TestiHelperClass(R.drawable.user,5,"Merah Jeruk","enakkk bgt mo nangiss!","walfreeday"));
-        testiLocations.add(new TestiHelperClass(R.drawable.user2,5,"Gurih","enakkk bgt mo nangiss!","farrasch"));
-        testiLocations.add(new TestiHelperClass(R.drawable.user3,5,"Gurih Jeruk","enakkk bgt mo nangiss!","widialfrda"));
-
-        //set layout ke userdashboard
-        testiRecycler.setHasFixedSize(true);
-        testiRecycler.setLayoutManager((new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)));
-        adapter = new TestiAdapter(testiLocations);
-        testiRecycler.setAdapter(adapter);
-    }
+//    private void testiRecycler() {
+//
+//        ArrayList<TestiHelperClass> testiLocations = new ArrayList<>();
+//
+//        testiLocations.add(new TestiHelperClass(R.drawable.user,5,"Merah Jeruk","enakkk bgt mo nangiss!","walfreeday"));
+//        testiLocations.add(new TestiHelperClass(R.drawable.user2,5,"Gurih","enakkk bgt mo nangiss!","farrasch"));
+//        testiLocations.add(new TestiHelperClass(R.drawable.user3,5,"Gurih Jeruk","enakkk bgt mo nangiss!","widialfrda"));
+//
+//        //set layout ke userdashboard
+//        testiRecycler.setHasFixedSize(true);
+//        testiRecycler.setLayoutManager((new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)));
+//        adapter = new TestiAdapter(testiLocations);
+//        testiRecycler.setAdapter(adapter);
+//    }
 
     @Override
     public void onBackPressed() {
