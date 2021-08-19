@@ -126,7 +126,7 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
         for (CartHelperClass cartHelperClass : cartHelperClassList){
             sum+=cartHelperClass.getTotal_harga();
         }
-        txt_cart.setText(new StringBuilder("IDR").append(sum));
+        txt_cart.setText(new StringBuilder("IDR ").append(sum));
         CartAdapter adapter = new CartAdapter(this, cartHelperClassList);
         recyclerCart.setAdapter(adapter);
     }

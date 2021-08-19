@@ -19,8 +19,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/cart_image"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/merah_jeruk"
             app:shapeAppearanceOverlay="@style/RoundRectangle"
             android:elevation="10dp"
@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/dark_grey"
                     android:textAllCaps="true"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="10dp"
                     android:layout_centerHorizontal="true" />
                 
                 <LinearLayout
@@ -60,8 +61,8 @@
                     
                     <ImageView
                         android:id="@+id/btn_minus"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/remove_cart"
                         android:layout_gravity="center_vertical"
                         android:elevation="5dp"/>
@@ -74,13 +75,13 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:textColor="@color/dark_grey"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:layout_gravity="bottom"/>
 
                     <ImageView
                         android:id="@+id/btn_plus"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/add_cart"
                         android:layout_gravity="center_vertical"
                         android:elevation="5dp"/>
@@ -91,10 +92,9 @@
                     android:id="@+id/cart_harga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:text="IDR 16k"
                     android:textColor="@color/dark_grey"
                     android:textStyle="bold"

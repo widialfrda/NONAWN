@@ -145,14 +145,10 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
                         }
                         else
                             menuLoadListener.onMenuLoadFailed("Varian Rasa Tidak Ditemukan");
-
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         //menuLoadListener.onMenuLoadFailed(error.getMessage());
-
                     }
                 });*/
     }
