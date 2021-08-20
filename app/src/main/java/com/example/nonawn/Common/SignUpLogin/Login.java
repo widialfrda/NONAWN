@@ -98,48 +98,29 @@ public class Login extends AppCompatActivity {
     }
 
     public void login_userdashboard(View view) {
-        firebaseAuth.signInWithEmailAndPassword(var_login_email.getEditText().getText().toString(),var_login_pass.getEditText().getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Intent intent = new Intent(getApplicationContext(),UserDashboard.class);
-                        if(task.isSuccessful()&!signin_validateEmail() | !signin_validatePassword()&(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)){
-                            startActivity(intent);
-                        }
-//                        else if (!signin_validateEmail() | !signin_validatePassword()){
-//                            Toast.makeText(Login.this,"Akun tidak terdaftar", Toast.LENGTH_LONG).show();
-////                            return;
-//                        }
-                        else{
-                            Toast.makeText(Login.this,"Akun tidak terdaftar", Toast.LENGTH_LONG).show();
-                            startActivity(intent);
-                            return;
-                        }
-                    }
-                });
 
-//        if (!signin_validateEmail() | !signin_validatePassword()){
-//            return;
-//        }
-//        String getEmail = getIntent().getStringExtra("email");
-//        String getPassword = getIntent().getStringExtra("password");
+        if (!signin_validateEmail() | !signin_validatePassword()){
+            return;
+        }
+        String getEmail = getIntent().getStringExtra("email");
+        String getPassword = getIntent().getStringExtra("password");
 
-//        Intent intent = new Intent(getApplicationContext(),UserDashboard.class);
+        Intent intent = new Intent(getApplicationContext(),UserDashboard.class);
 
-//        intent.putExtra("email",getEmail);
-//        intent.putExtra("password",getPassword);
+        intent.putExtra("email",getEmail);
+        intent.putExtra("password",getPassword);
 
-//        Pair[] pairs = new Pair[1];
-//
-//        pairs[0] = new Pair<View,String>(btnsignin,"trans_signin");
-//
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
-//            startActivity(intent,options.toBundle());
-//        } else {
-//
-//            startActivity(intent);
-//        }
+        Pair[] pairs = new Pair[1];
+
+        pairs[0] = new Pair<View,String>(btnsignin,"trans_signin");
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+            startActivity(intent,options.toBundle());
+        } else {
+
+            startActivity(intent);
+        }
     }
 }
