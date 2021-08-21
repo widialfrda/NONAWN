@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    TextInputLayout var_login_email, var_login_pass;
+    TextInputLayout var_login_email, var_login_pass, var_login_phoneNumber, var_login_fullname;
     Button btnsignin;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBarLogin;
@@ -143,6 +144,7 @@ public class Login extends AppCompatActivity {
 
         Query checkUser = reference.orderByChild("email").equalTo(userInputEmail);
 
+
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -150,19 +152,21 @@ public class Login extends AppCompatActivity {
                     var_login_email.setError(null);
                     var_login_email.setErrorEnabled(false);
 
-                    String passwordFromDB = dataSnapshot.child(userInputEmail).child("password").getValue(String.class);
+                    String passwordFromDB = dataSnapshot.child(userInputPassword).child("password").getValue(String.class);
 
                     if (passwordFromDB.equals(userInputPassword)){
-                        String fullnameFromDB = dataSnapshot.child(userInputEmail).child("fullname").getValue(String.class);
-                        String emailFromDB = dataSnapshot.child(userInputEmail).child("email").getValue(String.class);
-                        String phoneNoFromDB = dataSnapshot.child(userInputEmail).child("phoneNo").getValue(String.class);
 
-                        Intent intent = new Intent(getApplicationContext(), Profile.class);
+                        var_login_email.setError(null);
+                        var_login_email.setErrorEnabled(false);
 
-                        intent.putExtra("fullname", fullnameFromDB);
+//
+                        String emailFromDB = dataSnapshot.child("email").getValue(String.class);
+
+                        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("password", passwordFromDB);
-                        intent.putExtra("phoneNo", phoneNoFromDB);
+
 
                         startActivity(intent);
                     }
