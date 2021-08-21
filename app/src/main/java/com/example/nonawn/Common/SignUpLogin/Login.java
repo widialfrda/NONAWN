@@ -199,6 +199,7 @@ public class Login extends AppCompatActivity {
                 else{
                     var_login_email.setError("Email Salah");
                     var_login_email.requestFocus();
+
                 }
             }
 
