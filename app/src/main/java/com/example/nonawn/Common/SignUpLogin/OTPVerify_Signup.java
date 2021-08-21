@@ -42,6 +42,8 @@ public class OTPVerify_Signup extends AppCompatActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
     PinView otpverify_signup;
+    String fullname, email, password, phoneNo;
+
 
 
     @Override
@@ -56,7 +58,10 @@ public class OTPVerify_Signup extends AppCompatActivity {
         //hooks
         otpverify_signup = findViewById(R.id.otp_pinview_signup);
 
-        String phone = getIntent().getStringExtra("phone");
+        fullname = getIntent().getStringExtra("val_name");
+        email = getIntent().getStringExtra("val_email");
+        password = getIntent().getStringExtra("vall_pass");
+        phoneNo = getIntent().getStringExtra("phone");
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -86,7 +91,7 @@ public class OTPVerify_Signup extends AppCompatActivity {
             }
         };
 
-        sendVerificationCode(phone);
+        sendVerificationCode(phoneNo);
     }
 
     private void sendVerificationCode(String phoneNumber) {
@@ -105,6 +110,9 @@ public class OTPVerify_Signup extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+
+                    storeNewUsersData();
+
                     Intent intent = new Intent(OTPVerify_Signup.this, UserDashboard.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -116,6 +124,19 @@ public class OTPVerify_Signup extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void storeNewUsersData() {
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users").child(phoneNo);
+
+        UserHelperClass addNewUser = new UserHelperClass(fullname,email,password,phoneNo);
+
+        reference.setValue(addNewUser);
+
+
+
+
     }
 
 

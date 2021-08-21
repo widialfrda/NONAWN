@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.nonawn.R;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,8 +30,7 @@ public class Signup extends AppCompatActivity {
     //variabel getting data
     TextInputLayout fullname, email, password, no_telp;
 
-    FirebaseDatabase rootNode_signup;
-    DatabaseReference reference_signup;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,6 +187,15 @@ public class Signup extends AppCompatActivity {
         String phone = "+62"+no_telp.getEditText().getText().toString();
         Log.e("phone1",""+phone);
         intent.putExtra("phone", phone);
+        String val_name = fullname.getEditText().getText().toString();
+        Log.e("fullname1",""+val_name);
+        intent.putExtra("val_name", val_name);
+        String val_email= email.getEditText().getText().toString();
+        Log.e("email1",""+val_email);
+        intent.putExtra("val_email", val_email);
+        String val_pass= password.getEditText().getText().toString();
+        Log.e("password1",""+val_pass);
+        intent.putExtra("val_pass", val_pass);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 

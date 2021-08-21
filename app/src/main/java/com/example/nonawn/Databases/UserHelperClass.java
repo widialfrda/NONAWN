@@ -3,6 +3,8 @@ package com.example.nonawn.Databases;
 public class UserHelperClass {
 
     String fullname, email, password, PhoneNumber;
+    public UserHelperClass(){}
+
 
     public UserHelperClass(String fullname, String email, String password, String phoneNumber) {
         this.fullname = fullname;
