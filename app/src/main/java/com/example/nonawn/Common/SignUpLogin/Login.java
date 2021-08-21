@@ -108,10 +108,14 @@ public class Login extends AppCompatActivity {
 
     private boolean signin_validateNoTelp(){
         String val = var_login_phoneNumber.getEditText().getText().toString().trim();
-//        String checkno_telp = "(?=.*[0-9])"+"(?=\\S+$)"+".{11,13}";
+        String checkno_telp = "^"+"(?=.*[a-zA-Z])"+"(?=.*[0-9])"+"(?=.*[@#$%^&+=])"+"(?=\\S+$)"+".{13,15}"+"$";
 
         if (val.isEmpty()){
             var_login_phoneNumber.setError("Harus diisi");
+            return false;
+        }
+        else if(!val.matches(checkno_telp)){
+//            var_login_phoneNumber.setError("Harus berupa angka dan min. 13 karakter");
             return false;
         }
         else{
@@ -199,7 +203,6 @@ public class Login extends AppCompatActivity {
                 else{
                     var_login_email.setError("Email Salah");
                     var_login_email.requestFocus();
-
                 }
             }
 
