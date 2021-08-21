@@ -121,6 +121,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             case R.id.bottom_nav_tentang:
                 startActivity(new Intent(getApplicationContext(),Tentang.class));
                 break;
+            case R.id.bottom_nav_profile:
+                startActivity(new Intent(getApplicationContext(),Profile.class));
+                break;
         }
         return true;
     }
