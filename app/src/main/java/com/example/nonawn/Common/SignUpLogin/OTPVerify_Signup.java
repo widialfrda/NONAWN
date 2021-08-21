@@ -60,7 +60,7 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
         fullname = getIntent().getStringExtra("val_name");
         email = getIntent().getStringExtra("val_email");
-        password = getIntent().getStringExtra("vall_pass");
+        password = getIntent().getStringExtra("val_pass");
         phoneNo = getIntent().getStringExtra("phone");
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
