@@ -44,6 +44,7 @@ public class Login extends AppCompatActivity {
         //variables for validate email & pass
         var_login_email = findViewById(R.id.signin_email);
         var_login_pass =  findViewById(R.id.signin_password);
+        var_login_phoneNumber = findViewById(R.id.signin_no_telp);
         btnsignin = findViewById(R.id.signin_btn);
         firebaseAuth = firebaseAuth.getInstance();
 
@@ -105,9 +106,24 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    private boolean signin_validateNoTelp(){
+        String val = var_login_phoneNumber.getEditText().getText().toString().trim();
+//        String checkno_telp = "(?=.*[0-9])"+"(?=\\S+$)"+".{11,13}";
+
+        if (val.isEmpty()){
+            var_login_phoneNumber.setError("Harus diisi");
+            return false;
+        }
+        else{
+            var_login_phoneNumber.setError(null);
+            var_login_phoneNumber.setErrorEnabled(false);
+            return true;
+        }
+    }
+
     public void login_userdashboard(View view) {
 
-        if (!signin_validateEmail() | !signin_validatePassword()){
+        if (!signin_validateEmail() | !signin_validatePassword() | signin_validateNoTelp()){
             return;
         }
         else {
@@ -139,6 +155,8 @@ public class Login extends AppCompatActivity {
     private void isUser() {
         String userInputEmail = var_login_email.getEditText().getText().toString().trim();
         String userInputPassword = var_login_pass.getEditText().getText().toString().trim();
+        String userInputPhoneNumber = var_login_phoneNumber.getEditText().getText().toString();
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -152,9 +170,12 @@ public class Login extends AppCompatActivity {
                     var_login_email.setError(null);
                     var_login_email.setErrorEnabled(false);
 
-                    String passwordFromDB = dataSnapshot.child(userInputPassword).child("password").getValue(String.class);
+                    String checker = dataSnapshot.child(userInputPhoneNumber).child("password").getValue().toString();
+                    Log.e("PW",""+checker);
 
-                    if (passwordFromDB.equals(userInputPassword)){
+                    //String passwordFromDB = dataSnapshot.child(userInputPassword).child("password").getValue(String.class);
+
+                    if (checker.equals(userInputPassword)){
 
                         var_login_email.setError(null);
                         var_login_email.setErrorEnabled(false);
@@ -165,7 +186,7 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
 
                         intent.putExtra("email", emailFromDB);
-                        intent.putExtra("password", passwordFromDB);
+                        intent.putExtra("password", checker);
 
 
                         startActivity(intent);

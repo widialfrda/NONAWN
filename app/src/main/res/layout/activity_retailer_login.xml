@@ -60,6 +60,30 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signin_no_telp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="No. Telp"
+            android:textColorHint="@color/dark_grey"
+            app:hintTextColor="@color/dark_grey"
+            app:boxStrokeColor="@color/dark_grey"
+            app:boxStrokeWidthFocused="2dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@color/black"
+                android:inputType="phone"
+                android:textColorHint="@color/dark_grey"
+                android:textCursorDrawable="@color/black"
+                android:cursorVisible="true"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signin_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,31 +109,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="6dp"
-            android:layout_marginTop="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lupa detail login? "
-                android:layout_centerVertical="true"
-                android:textSize="12sp"
-                android:textColor="@color/dark_grey"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dapatkan bantuan untuk login"
-                android:layout_alignParentEnd="true"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:clickable="true"/>
-
-        </RelativeLayout>
 
         <Button
             android:id="@+id/signin_btn"
