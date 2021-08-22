@@ -1,8 +1,10 @@
 package com.example.nonawn.HelperClasses.MenuModel;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,14 +28,25 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     private Context context;
     private List<CartHelperClass> cartHelperClassList;
+    private Intent intent;
+
+    String getPhoneNumber;
+
+    Intent intent = ((Activity) context).getIntent();
+    
+    getPhoneNumber = getIntent().getStringExtra("phone");
+
+
 
     public CartAdapter(Context context, List<CartHelperClass> cartHelperClassList) {
         this.context = context;
         this.cartHelperClassList = cartHelperClassList;
+        this.intent = intent;
     }
 
     @NonNull
@@ -41,10 +54,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new CartViewHolder(LayoutInflater.from(context)
                 .inflate(R.layout.card_forcart,parent,false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
+
         Glide.with(context)
                 .load(cartHelperClassList.get(position).getImage())
                 .into(holder.variancard_image);

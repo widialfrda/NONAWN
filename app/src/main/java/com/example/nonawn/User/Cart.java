@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.nonawn.Common.SignUpLogin.Login;
+import com.example.nonawn.Databases.UserHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.CartAdapter;
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
@@ -26,6 +27,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -51,6 +53,8 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     TextView txt_cart;
 
     CartLoadListener cartLoadListener;
+
+    String getPhoneNumber;
 
     @Override
     protected void onStart() {
@@ -78,6 +82,8 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        getPhoneNumber = getIntent().getStringExtra("phone");
+
         init();
         loadCartFromFirebase();
     }
@@ -85,7 +91,7 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     private void loadCartFromFirebase() {
 
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("Cart").child("User_ID")
+        FirebaseDatabase.getInstance().getReference("Cart").child(getPhoneNumber)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -100,7 +106,6 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
                         }
                         else
                             cartLoadListener.onCartLoadFailed("Keranjang Kosong");
-
                     }
 
                     @Override

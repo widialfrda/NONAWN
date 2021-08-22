@@ -54,8 +54,11 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
     @BindView(R.id.frame_cart)
     FrameLayout btn_cart;
 
+
     MenuLoadListener menuLoadListener;
     CartLoadListener cartLoadListener;
+
+    String getPhoneNumber;
 
     @Override
     protected void onStart() {
@@ -81,6 +84,8 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_menu_makanan);
+
+        getPhoneNumber = getIntent().getStringExtra("phone");
 
         init();
         loadMenufromFirebase();
@@ -202,7 +207,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase
                 .getInstance().getReference("Cart")
-                .child("User_ID")
+                .child(getPhoneNumber)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
