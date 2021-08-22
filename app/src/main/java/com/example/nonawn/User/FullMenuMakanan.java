@@ -43,6 +43,8 @@ import butterknife.ButterKnife;
 
 public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListener, CartLoadListener {
 
+    String getPhone;
+
     //    @BindView(R.id.recyclerview_varianspicy)
 //    RecyclerView recyclerspicy;
     @BindView(R.id.recyclerview_variannonspicy)
@@ -54,11 +56,8 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
     @BindView(R.id.frame_cart)
     FrameLayout btn_cart;
 
-
     MenuLoadListener menuLoadListener;
     CartLoadListener cartLoadListener;
-
-    String getPhoneNumber;
 
     @Override
     protected void onStart() {
@@ -85,8 +84,9 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_menu_makanan);
 
-        getPhoneNumber = getIntent().getStringExtra("phone");
-        Log.e("phone-FMM",""+getPhoneNumber);
+        Intent intent = getIntent();
+        getPhone = intent.getStringExtra("getPhone");
+        Log.e("UIPN-FMM",""+getPhone);
 
         init();
         loadMenufromFirebase();
@@ -102,9 +102,9 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
-                        Log.e("produk",""+snapshot.child("Produk").getValue().toString());
+                        /*Log.e("produk",""+snapshot.child("Produk").getValue().toString());
                         Log.e("gambar uri",""+snapshot.child("Gambar").getValue().toString());
-                        Log.e("harga",""+snapshot.child("Harga").getValue().toString());
+                        Log.e("harga",""+snapshot.child("Harga").getValue().toString());*/
 
                         MenuHelperClass menuHelperClass = snapshot.getValue(MenuHelperClass.class);
                         menuHelperClass.setVarian(snapshot.child("Produk").getValue().toString());
@@ -169,7 +169,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         recyclernonspicy.setLayoutManager(gridLayoutManager);
         recyclernonspicy.addItemDecoration(new SpaceItemDecoration());
 
-        btn_cart.setOnClickListener(v -> startActivity(new Intent(this, Cart.class)));
+        btn_cart.setOnClickListener(v -> startActivity(new Intent(this, Cart.class).putExtra("getPhone",getPhone)));
     }
 
     @Override
@@ -208,7 +208,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase
                 .getInstance().getReference("Cart")
-                .child(getPhoneNumber)
+                .child(getPhone)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

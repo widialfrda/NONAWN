@@ -33,8 +33,7 @@ import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    //variabel for user's cart classsification
-    String getPhoneNumber;
+    String getPhone;
 
     static final float END_SCALE = 0.7f;
 
@@ -75,8 +74,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 //        testiRecycler();
         navigationDrawer();
 
-        getPhoneNumber = getIntent().getStringExtra("phone");
-        Log.e("phone-CART",""+getPhoneNumber);
+        Intent intent = getIntent();
+        getPhone = intent.getStringExtra("getPhone");
+
+        Log.e("GETPHONE",""+getPhone);
     }
 
     //Navigation Drawer Functions
@@ -102,23 +103,23 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         drawerLayout.setScrimColor(getResources().getColor(R.color.whitegrey));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
+                                           @Override
+                                           public void onDrawerSlide(View drawerView, float slideOffset) {
 
 
-                //Scale the view based on current slide offset
-                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
-                final float offsetScale = 1 - diffScaledOffset;
-                contentView.setScaleX(offsetScale);
-                contentView.setScaleY(offsetScale);
+                                               //Scale the view based on current slide offset
+                                               final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                                               final float offsetScale = 1 - diffScaledOffset;
+                                               contentView.setScaleX(offsetScale);
+                                               contentView.setScaleY(offsetScale);
 
-                //Translate the view, accounting for the scaled width
-                final float xOffset = drawerView.getWidth() * slideOffset;
-                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
-                final float xTranslation = xOffset - xOffsetDiff;
-                contentView.setTranslationX(xTranslation);
-            }
-        }
+                                               //Translate the view, accounting for the scaled width
+                                               final float xOffset = drawerView.getWidth() * slideOffset;
+                                               final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                                               final float xTranslation = xOffset - xOffsetDiff;
+                                               contentView.setTranslationX(xTranslation);
+                                           }
+                                       }
         );
     }
 
@@ -215,8 +216,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void seemore_varian(View view) {
-        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class).putExtra("phone",getPhoneNumber));
-        finish();
+        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class).putExtra("getPhone",getPhone));
+        //finish();
     }
 }
 

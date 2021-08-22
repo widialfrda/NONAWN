@@ -38,6 +38,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public CartAdapter(Context context, List<CartHelperClass> cartHelperClassList) {
         this.context = context;
         this.cartHelperClassList = cartHelperClassList;
+        this.intent = intent;
     }
 
     @NonNull
@@ -85,13 +86,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void deleteFromFirebase(CartHelperClass cartHelperClass) {
-        String getPhoneNumber;
+        String getPhone_CA;
         Intent intent = ((Activity) context).getIntent();
-        getPhoneNumber = intent.getStringExtra("phone");
+        getPhone_CA = intent.getStringExtra("uipn");
 
         FirebaseDatabase.getInstance()
                 .getReference("Cart")
-                .child(getPhoneNumber)
+                .child(getPhone_CA)
                 .child(cartHelperClass.getKey())
                 .removeValue()
                 .addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new UpdateCartItem()));
@@ -121,12 +122,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void updateFirebase(CartHelperClass cartHelperClass) {
-        String getPhoneNumber;
+        String uipn_ca;
         Intent intent = ((Activity) context).getIntent();
-        getPhoneNumber = intent.getStringExtra("phone");
+        uipn_ca = intent.getStringExtra("uipn");
+
         FirebaseDatabase.getInstance()
                 .getReference("Cart")
-                .child(getPhoneNumber)
+                .child(uipn_ca)
                 .child(cartHelperClass.getKey())
                 .setValue(cartHelperClass).addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new UpdateCartItem()));
         Log.e("KEY",""+cartHelperClass.getKey());

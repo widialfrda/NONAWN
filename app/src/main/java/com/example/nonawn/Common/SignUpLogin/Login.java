@@ -31,9 +31,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    TextInputLayout var_login_email, var_login_pass, var_login_phoneNumber;
+    TextInputLayout var_login_email, var_login_pass, var_login_phoneNumber, var_login_fullname;
     Button btnsignin;
     FirebaseAuth firebaseAuth;
+    ProgressBar progressBarLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,8 +191,7 @@ public class Login extends AppCompatActivity {
 
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("password", checker);
-                        intent.putExtra("phone", userInputPhoneNumber);
-
+                        intent.putExtra("getPhone",userInputPhoneNumber);
 
                         startActivity(intent);
                     }
