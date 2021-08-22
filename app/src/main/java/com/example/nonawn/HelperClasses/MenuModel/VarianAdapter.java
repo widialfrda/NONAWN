@@ -1,6 +1,8 @@
 package com.example.nonawn.HelperClasses.MenuModel;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,10 +70,14 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
     }
 
     private void addToCart(MenuHelperClass menuHelperClass) {
+        String getPhoneNumber;
+        Intent intent = ((Activity) context).getIntent();
+        getPhoneNumber = intent.getStringExtra("phone");
+
         DatabaseReference userCart = FirebaseDatabase
                 .getInstance()
                 .getReference("Cart")
-                .child("User_ID");
+                .child(getPhoneNumber);
 
         Log.e("KEY",""+menuHelperClass.getKey());
         Log.e("VARIAN",""+menuHelperClass.getVarian());

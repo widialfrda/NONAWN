@@ -83,6 +83,7 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
         setContentView(R.layout.activity_cart);
 
         getPhoneNumber = getIntent().getStringExtra("phone");
+        Log.e("phone-CART",""+getPhoneNumber);
 
         init();
         loadCartFromFirebase();

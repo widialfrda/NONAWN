@@ -86,6 +86,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         setContentView(R.layout.activity_full_menu_makanan);
 
         getPhoneNumber = getIntent().getStringExtra("phone");
+        Log.e("phone-FMM",""+getPhoneNumber);
 
         init();
         loadMenufromFirebase();

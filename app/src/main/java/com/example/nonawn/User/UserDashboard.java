@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,6 +32,9 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    //variabel for user's cart classsification
+    String getPhoneNumber;
 
     static final float END_SCALE = 0.7f;
 
@@ -70,6 +74,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         promoRecycler();
 //        testiRecycler();
         navigationDrawer();
+
+        getPhoneNumber = getIntent().getStringExtra("phone");
+        Log.e("phone-CART",""+getPhoneNumber);
     }
 
     //Navigation Drawer Functions
@@ -208,7 +215,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void seemore_varian(View view) {
-        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class));
+        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class).putExtra("phone",getPhoneNumber));
         finish();
     }
 }
