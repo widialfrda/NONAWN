@@ -86,13 +86,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void deleteFromFirebase(CartHelperClass cartHelperClass) {
-        String getPhone_CA;
+        String uipn_ca;
         Intent intent = ((Activity) context).getIntent();
-        getPhone_CA = intent.getStringExtra("uipn");
+        uipn_ca = intent.getStringExtra("uipn");
 
         FirebaseDatabase.getInstance()
                 .getReference("Cart")
-                .child(getPhone_CA)
+                .child(uipn_ca)
                 .child(cartHelperClass.getKey())
                 .removeValue()
                 .addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new UpdateCartItem()));

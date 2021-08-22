@@ -43,7 +43,7 @@ import butterknife.ButterKnife;
 
 public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListener, CartLoadListener {
 
-    String getPhone;
+    String uipn;
 
     //    @BindView(R.id.recyclerview_varianspicy)
 //    RecyclerView recyclerspicy;
@@ -85,8 +85,8 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         setContentView(R.layout.activity_full_menu_makanan);
 
         Intent intent = getIntent();
-        getPhone = intent.getStringExtra("getPhone");
-        Log.e("UIPN-FMM",""+getPhone);
+        uipn = intent.getStringExtra("uipn");
+        Log.e("UIPN-FMM",""+uipn);
 
         init();
         loadMenufromFirebase();
@@ -169,7 +169,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         recyclernonspicy.setLayoutManager(gridLayoutManager);
         recyclernonspicy.addItemDecoration(new SpaceItemDecoration());
 
-        btn_cart.setOnClickListener(v -> startActivity(new Intent(this, Cart.class).putExtra("getPhone",getPhone)));
+        btn_cart.setOnClickListener(v -> startActivity(new Intent(this, Cart.class).putExtra("uipn",uipn)));
     }
 
     @Override
@@ -208,7 +208,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase
                 .getInstance().getReference("Cart")
-                .child(getPhone)
+                .child(uipn)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

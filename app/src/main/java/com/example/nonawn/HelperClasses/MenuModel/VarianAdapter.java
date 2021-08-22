@@ -70,14 +70,14 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
     }
 
     private void addToCart(MenuHelperClass menuHelperClass) {
-        String getPhone_VA;
+        String uipn_va;
         Intent intent = ((Activity) context).getIntent();
-        getPhone_VA = intent.getStringExtra("getPhone");
+        uipn_va = intent.getStringExtra("uipn");
 
         DatabaseReference userCart = FirebaseDatabase
                 .getInstance()
                 .getReference("Cart")
-                .child(getPhone_VA);
+                .child(uipn_va);
 
         /*Log.e("KEY",""+menuHelperClass.getKey());
         Log.e("VARIAN",""+menuHelperClass.getVarian());*/

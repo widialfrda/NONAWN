@@ -191,7 +191,7 @@ public class Login extends AppCompatActivity {
 
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("password", checker);
-                        intent.putExtra("getPhone",userInputPhoneNumber);
+                        intent.putExtra("uipn",userInputPhoneNumber);
 
                         startActivity(intent);
                     }

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    String getPhone;
+    String uipn;
 
     static final float END_SCALE = 0.7f;
 
@@ -75,9 +75,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationDrawer();
 
         Intent intent = getIntent();
-        getPhone = intent.getStringExtra("getPhone");
+        uipn = intent.getStringExtra("uipn");
 
-        Log.e("GETPHONE",""+getPhone);
+        Log.e("UIPN",""+uipn);
     }
 
     //Navigation Drawer Functions
@@ -216,7 +216,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void seemore_varian(View view) {
-        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class).putExtra("getPhone",getPhone));
+        startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class).putExtra("uipn",uipn));
         //finish();
     }
 }
