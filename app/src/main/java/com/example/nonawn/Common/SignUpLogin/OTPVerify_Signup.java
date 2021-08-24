@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.chaos.view.PinView;
 import com.example.nonawn.Databases.UserHelperClass;
 import com.example.nonawn.R;
+import com.example.nonawn.User.Profile;
 import com.example.nonawn.User.UserDashboard;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -113,8 +114,10 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
                     storeNewUsersData();
 
-                    Intent intent = new Intent(OTPVerify_Signup.this, UserDashboard.class);
+                    Intent intent = new Intent(OTPVerify_Signup.this, Profile.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+
 
                     startActivity(intent);
                 }

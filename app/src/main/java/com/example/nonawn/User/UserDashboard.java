@@ -27,7 +27,6 @@ import com.example.nonawn.HelperClasses.HomeAdapter.TestiAdapter;
 import com.example.nonawn.HelperClasses.HomeAdapter.TestiHelperClass;
 import com.example.nonawn.R;
 import com.google.android.material.navigation.NavigationView;
-import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 
@@ -107,18 +106,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                                            public void onDrawerSlide(View drawerView, float slideOffset) {
 
 
-                                               //Scale the view based on current slide offset
-                                               final float diffScaledOffset = slideOffset * (1 - END_SCALE);
-                                               final float offsetScale = 1 - diffScaledOffset;
-                                               contentView.setScaleX(offsetScale);
-                                               contentView.setScaleY(offsetScale);
+                             //Scale the view based on current slide offset
+                             final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                             final float offsetScale = 1 - diffScaledOffset;
+                             contentView.setScaleX(offsetScale);
+                             contentView.setScaleY(offsetScale);
 
-                                               //Translate the view, accounting for the scaled width
-                                               final float xOffset = drawerView.getWidth() * slideOffset;
-                                               final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
-                                               final float xTranslation = xOffset - xOffsetDiff;
-                                               contentView.setTranslationX(xTranslation);
-                                           }
+                             //Translate the view, accounting for the scaled width
+                             final float xOffset = drawerView.getWidth() * slideOffset;
+                             final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                             final float xTranslation = xOffset - xOffsetDiff;
+                             contentView.setTranslationX(xTranslation);
+                              }
                                        }
         );
     }

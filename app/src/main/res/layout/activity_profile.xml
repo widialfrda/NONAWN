@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".User.Profile"
     android:background="@color/whitegrey"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,19 +28,20 @@
 
             <ImageView
                 android:id="@+id/bg_pp"
-                android:layout_width="130dp"
+                android:layout_width="125dp"
                 android:layout_height="130dp"
-                android:src="@drawable/bg_circlewhitegrey"
-                android:elevation="10dp"/>
+                android:padding="15dp"
+                android:src="@drawable/logo"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/pp"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:elevation="20dp"/>
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/pp"-->
+<!--                android:layout_width="110dp"-->
+<!--                android:layout_height="110dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_centerHorizontal="true"-->
 <!--                android:src="@drawable/user"-->
+<!--                android:elevation="20dp"/>-->
+
 
         </RelativeLayout>
         <LinearLayout
@@ -52,16 +55,16 @@
                 android:id="@+id/text_namauser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Widi Alfrida P"
+                android:text="Fullname"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="sans-serif-condensed-medium"/>
             <TextView
-                android:layout_width="120sp"
+                android:layout_width="100sp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_silver"
-                android:text="Member >"
+                android:text="Member"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 android:paddingLeft="10dp"
@@ -71,177 +74,118 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginTop="20dp">
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/round_corners"
+        android:layout_gravity="center_horizontal"
+        android:elevation="8dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/icon_fullname_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_profile"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/profile_fullname"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_marginRight="50dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:text="Fullname"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/icon_fullname_profile"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/belum_bayar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/greymuda"
-                android:src="@drawable/belumbayar" />
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_corners"
+        android:layout_gravity="center_horizontal"
+        android:elevation="8dp">
 
-            <TextView
-                android:id="@+id/text_belumbayar"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Belum Bayar"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-        <LinearLayout
+        <ImageView
+            android:id="@+id/icon_email_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/email_filled"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/profile_email"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginRight="50dp">
-            <ImageView
-                android:id="@+id/ready_pickup"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/dapat_diambil" />
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/icon_email_profile"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/text_readypickup"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="Dapat Diambil"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:textSize="16sp"/>
-        </LinearLayout>
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_corners"
+        android:layout_gravity="center_horizontal"
+        android:elevation="8dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/icon_pass_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/npm"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/profile_password"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/icon_pass_profile"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/pembayaran_ditolak"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/icon_clear_x"
-                android:layout_toRightOf="@id/ready_pickup" />
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_corners"
+        android:layout_gravity="center_horizontal"
+        android:elevation="8dp">
 
-            <TextView
-                android:id="@+id/text_pembayaranditolak"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="Transaksi Gagal"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textAlignment="center"/>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/icon_notelp_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/phone_icon"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/profile_notelp"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:text="PhoneNumber"
+            android:textSize="20sp"
+            android:textColor="@color/grey"
+            android:layout_toRightOf="@+id/icon_notelp_profile"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/round_corners"
-                android:elevation="10dp"
-                android:padding="15dp"
-                android:src="@drawable/riwayat_pesanan" />
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Riwayat Pesanan"
-                android:fontFamily="sans-serif"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:orientation="vertical"
-            android:layout_marginRight="20dp"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/round_corners"
-                android:elevation="10dp"
-                android:src="@drawable/setting_akun"
-                android:padding="15dp"/>
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Pengaturan akun"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:layout_marginTop="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/round_corners"
-                android:elevation="10dp"
-                android:src="@drawable/ketentuan_pelayanan"
-                android:padding="15dp"/>
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Ketentuan Aplikasi"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:textAlignment="center"/>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -252,10 +196,10 @@
         android:gravity="bottom">
 
         <Button
+            android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/maroon"
-
             android:elevation="10dp"
             android:fontFamily="sans-serif"
             android:text="LOGOUT"
