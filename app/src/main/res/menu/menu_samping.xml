@@ -14,10 +14,10 @@
             android:id="@+id/bottom_nav_profile"
             android:title="@string/nav_profile"
             android:icon="@drawable/icon_profile"/>
-        <item
-            android:id="@+id/bottom_nav_historyorder"
-            android:title="@string/nav_historyorder"
-            android:icon="@drawable/icon_history"/>
+<!--        <item-->
+<!--            android:id="@+id/bottom_nav_historyorder"-->
+<!--            android:title="@string/nav_historyorder"-->
+<!--            android:icon="@drawable/icon_history"/>-->
         <item
             android:id="@+id/bottom_nav_logout"
             android:title="@string/nav_logout"

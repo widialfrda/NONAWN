@@ -41,30 +41,6 @@ public class Profile extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserHelperClass userHelperClass = snapshot.getValue(UserHelperClass.class);
-                display_fullname.setText(userHelperClass.getFullname());
-                label_fullname.setText(userHelperClass.getFullname());
-                label_email.setText(userHelperClass.getEmail());
-                label_password.setText(userHelperClass.getPassword());
-                label_notelp.setText(""+userHelperClass.getPhoneNumber());
-
-                Log.e("dis_fullname",""+display_fullname);
-                Log.e("dis_email",""+label_email);
-                Log.e("dis_notelp",""+label_notelp);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Profile.this, error.getCode(),Toast.LENGTH_SHORT).show();
-            }
-        });
-
         showAllUser();
     }
 
@@ -86,6 +62,30 @@ public class Profile extends AppCompatActivity {
 //        label_email.setText(show_email);
 //        label_password.setText(show_password);
 //        label_notelp.setText(show_notelp);
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserHelperClass userHelperClass = snapshot.getValue(UserHelperClass.class);
+
+                label_fullname.setText(userHelperClass.getFullname());
+                label_email.setText(userHelperClass.getEmail());
+                label_password.setText(userHelperClass.getPassword());
+                label_notelp.setText(""+userHelperClass.getPhoneNumber());
+
+
+                Log.e("dis_email",""+label_email);
+                Log.e("dis_notelp",""+label_notelp);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Profile.this, error.getCode(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

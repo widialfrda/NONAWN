@@ -75,7 +75,7 @@ public class SetNewPass extends AppCompatActivity {
         String getPassLama = getIntent().getStringExtra("pass_lama");
         String getPassBaru = getIntent().getStringExtra("pass_baru");
 
-        Intent intent = new Intent(getApplicationContext(), SuksesForgetPassMsg.class);
+        Intent intent = new Intent(getApplicationContext(), SuksesOrder.class);
 
         intent.putExtra("pass_lama",getPassLama);
         intent.putExtra("pass_baru",getPassBaru);

@@ -7,17 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.nonawn.R;
+import com.example.nonawn.User.UserDashboard;
 
-public class SuksesForgetPassMsg extends AppCompatActivity {
+public class SuksesOrder extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sukses_forget_pass_msg);
+        setContentView(R.layout.activity_sukses_order);
     }
 
-    public void suksesforget_gotologin(View view) {
-        startActivity(new Intent(getApplicationContext(),Login.class));
+    public void go_dashboard(View view) {
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
         finish();
     }
 }

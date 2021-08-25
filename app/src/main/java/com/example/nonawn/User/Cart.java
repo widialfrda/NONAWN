@@ -1,7 +1,6 @@
 package com.example.nonawn.User;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.nonawn.Common.SignUpLogin.SuksesOrder;
 import com.example.nonawn.HelperClasses.MenuModel.CartAdapter;
 import com.example.nonawn.HelperClasses.MenuModel.CartHelperClass;
 import com.example.nonawn.HelperClasses.MenuModel.EventBus.UpdateCartItem;
@@ -146,6 +146,11 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
 
     public void back_fullMenuMakanan(View view) {
         startActivity(new Intent(getApplicationContext(), FullMenuMakanan.class));
+        finish();
+    }
+
+    public void checkout(View view) {
+        startActivity(new Intent(getApplicationContext(), SuksesOrder.class));
         finish();
     }
 }

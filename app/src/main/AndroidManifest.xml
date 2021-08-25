@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.Checkout"></activity>
         <activity android:name=".Common.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +22,7 @@
         <activity android:name=".Common.SignUpLogin.OTPVerify_Signup" />
         <activity android:name=".User.FullMenuMakanan" />
         <activity android:name=".User.Profile" />
-        <activity android:name=".Common.SignUpLogin.SuksesForgetPassMsg" />
+        <activity android:name=".Common.SignUpLogin.SuksesOrder" />
         <activity android:name=".Common.SignUpLogin.SetNewPass" />
         <activity android:name=".Common.SignUpLogin.PilihanReset" />
         <activity android:name=".Common.SignUpLogin.ForgetPassword" /> <!-- <activity android:name=".Common.SignUpLogin.OTPVerify_forgetpass" /> -->

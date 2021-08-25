@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Common.SignUpLogin.SuksesForgetPassMsg"
+    tools:context=".Common.SignUpLogin.SuksesOrder"
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="30dp">
@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PENGATURAN SELESAI!"
+        android:text="PESANAN SELESAI!"
         android:textColor="@color/dark_grey"
         android:fontFamily="sans-serif-condensed-medium"
         android:textSize="22sp"
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sekarang, waktunya masuk ke akun kamu dengan email dan kata sandi baru kamu ya"
+        android:text="Mohon tunggu ya, tim kami akan segera konfirmasi ke kamu mengenai pesanan kamu"
         android:textColor="@color/dark_grey"
         android:textSize="18sp"
         android:textAlignment="center"
@@ -39,14 +39,16 @@
         android:layout_marginTop="10dp"/>
 
     <Button
+        android:id="@+id/back_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MASUK"
-        android:textColor="@color/dark_grey"
+        android:text="Dashboard"
+        android:backgroundTint="@color/maroon"
+        android:textColor="@color/white"
         android:fontFamily="sans-serif-condensed-medium"
         android:textSize="17sp"
         android:layout_marginTop="40dp"
         android:clickable="true"
-        android:onClick="suksesforget_gotologin"/>
+        android:onClick="go_dashboard"/>
 
 </LinearLayout>
