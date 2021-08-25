@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nonawn.Common.SignUpLogin.Login;
 import com.example.nonawn.Common.SignUpLogin.OTPVerify_Signup;
+import com.example.nonawn.Common.SignUpLogin.RetailerWelcomeScreen;
 import com.example.nonawn.Common.SignUpLogin.Signup;
+import com.example.nonawn.Databases.SessionManager;
 import com.example.nonawn.Databases.UserHelperClass;
 import com.example.nonawn.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +31,8 @@ public class Profile extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth fAuth;
     String uipn;
+
+    Button btn_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class Profile extends AppCompatActivity {
 
         Log.e("UIPN",""+uipn);
 
-
+        btn_logout = findViewById(R.id.btn_logout);
 
         showAllUser();
     }
@@ -98,5 +105,20 @@ public class Profile extends AppCompatActivity {
         });
 
 
+    }
+
+    public void logout_profile(View view) {
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SessionManager sessionManager = new SessionManager(getApplicationContext());
+                sessionManager.logoutUserFromSession();
+
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

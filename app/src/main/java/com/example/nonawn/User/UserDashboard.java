@@ -14,9 +14,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.nonawn.Common.SignUpLogin.Login;
 import com.example.nonawn.Databases.SessionManager;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedHelperClass;
@@ -30,7 +32,6 @@ import com.example.nonawn.R;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -38,15 +39,19 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     static final float END_SCALE = 0.7f;
 
-    RecyclerView  featuredRecycler, promoRecycler, kategoriRecycler, testiRecycler;
+    RecyclerView  featuredRecycler, promoRecycler, kategoriRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
     ImageView menuIcon;
     LinearLayout contentView;
+    NavigationView btn_nav_logout;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    //Session Manager
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 //        testiRecycler = findViewById(R.id.testi_recycler);
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
+
+        btn_nav_logout = findViewById(R.id.button_nav_logout);
 
 
         //Menu Hooks
@@ -80,10 +87,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         Log.e("UIPN",""+uipn);
 
-        SessionManager sessionManager = new SessionManager(this);
-        HashMap<String, String> userDetails = sessionManager.getUserDetailFromSession();
-
-        String phoneNumber = userDetails.get(SessionManager.KEY_PhoneNumber);
+        //ambil data nomor telepon dari login. dan link dgn session manager
+        sessionManager = new SessionManager(this);
+        uipn = sessionManager.getSPNo();
+        Log.e("SF",""+sessionManager.getSPNo());
     }
 
     //Navigation Drawer Functions
@@ -91,7 +98,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //Navigation Drawer
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.bottom_nav_home);
+        navigationView.setCheckedItem(R.id.button_nav_home);
 
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,14 +139,27 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.bottom_nav_tentang:
+            case R.id.button_nav_tentang:
                 startActivity(new Intent(getApplicationContext(),Tentang.class));
                 break;
-            case R.id.bottom_nav_profile:
-                startActivity(new Intent(getApplicationContext(), Profile.class).putExtra("uipn",uipn));
+            case R.id.button_nav_profile:
+                startActivity(new Intent(getApplicationContext(),Profile.class).putExtra("uipn",uipn));
+                finish();
+                break;
+            case R.id.button_nav_logout:
+                btn_nav_logout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SessionManager sessionManager = new SessionManager(getApplicationContext());
+                        sessionManager.logoutUserFromSession();
+
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
                 break;
         }
-
         return true;
     }
 

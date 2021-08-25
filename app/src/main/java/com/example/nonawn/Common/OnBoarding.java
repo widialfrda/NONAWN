@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nonawn.Common.SignUpLogin.RetailerWelcomeScreen;
+import com.example.nonawn.Databases.SessionManager;
 import com.example.nonawn.HelperClasses.SliderAdapter;
 import com.example.nonawn.R;
 import com.example.nonawn.User.UserDashboard;
@@ -35,11 +36,15 @@ public class OnBoarding extends AppCompatActivity {
     Animation animation;
     int currentPos;
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_on_boarding);
+
+        sessionManager = new SessionManager(this);
 
         //Hooks
         viewPager = findViewById(R.id.slider);
@@ -55,6 +60,14 @@ public class OnBoarding extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        if (sessionManager.getSPLoggedIn()){
+            startActivity(new Intent(getApplicationContext(),UserDashboard.class));
+            finish();
+        }
+        super.onStart();
+    }
 
     public void skip(View view){
         startActivity(new Intent(getApplicationContext(),RetailerWelcomeScreen.class));

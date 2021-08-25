@@ -10,42 +10,34 @@ public class SessionManager {
     //variables
     SharedPreferences userSession;
     SharedPreferences.Editor editor;
-    Context context;
 
-    private static final String IS_LOGIN = "IsLoggedIn";
-
+    public static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_PhoneNumber = "phone";
 
-    public SessionManager (Context _context){
-        context = _context;
+    public SessionManager (Context context){
         userSession = context.getSharedPreferences("userLoginSession", Context.MODE_PRIVATE);
         editor = userSession .edit();
     }
 
-    public void createLoginSession(String phone){
-        editor.putBoolean(IS_LOGIN,true);
-
-        editor.putString(KEY_PhoneNumber, phone);
-
+    public void saveSPString(String key, String value){
+        editor.putString(key, value);
         editor.commit();
     }
-    public HashMap<String, String> getUserDetailFromSession(){
-        HashMap<String, String> userData = new HashMap<String, String>();
-
-        userData.put(KEY_PhoneNumber,userSession.getString(KEY_PhoneNumber,null));
-
-        return userData;
+    public void saveSPBoolean(String key, boolean value){
+        editor.putBoolean(key, value);
+        editor.commit();
     }
 
-    public boolean checkLogin(){
-        if (userSession.getBoolean(IS_LOGIN, false)){
-            return true;
-        }
-        else
-            return false;
+    public String getSPNo(){
+        return userSession.getString(KEY_PhoneNumber,"");
+    }
+
+    public boolean getSPLoggedIn(){
+        return userSession.getBoolean(IS_LOGIN,false);
     }
 
     public void logoutUserFromSession(){
+
         editor.clear();
         editor.commit();
     }

@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
     Button btnsignin;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBarLogin;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class Login extends AppCompatActivity {
         btnsignin = findViewById(R.id.signin_btn);
         firebaseAuth = firebaseAuth.getInstance();
 
-
+        sessionManager = new SessionManager(this);
 
     }
 
@@ -195,12 +196,10 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("uipn",userInputPhoneNumber);
 
                         //Create a session
-
-                        SessionManager sessionManager = new SessionManager(Login.this);
-                        sessionManager.createLoginSession(userInputPhoneNumber);
-
-
+                        sessionManager.saveSPString(SessionManager.KEY_PhoneNumber, userInputPhoneNumber);
+                        sessionManager.saveSPBoolean(SessionManager.IS_LOGIN,true);
                         startActivity(intent);
+                        finish();
                     }
                     else{
                         var_login_pass.setError("Password Salah");
