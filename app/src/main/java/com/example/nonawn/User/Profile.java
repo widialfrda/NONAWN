@@ -25,6 +25,7 @@ public class Profile extends AppCompatActivity {
     TextView display_fullname, label_fullname, label_email, label_password, label_notelp;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth fAuth;
+    String uipn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class Profile extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
+        Intent intent = getIntent();
+        uipn = intent.getStringExtra("uipn");
+
+        Log.e("UIPN",""+uipn);
+
+
 
         showAllUser();
     }
@@ -63,13 +71,15 @@ public class Profile extends AppCompatActivity {
 //        label_password.setText(show_password);
 //        label_notelp.setText(show_notelp);
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(uipn);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserHelperClass userHelperClass = snapshot.getValue(UserHelperClass.class);
 
+                display_fullname.setText(userHelperClass.getFullname());
                 label_fullname.setText(userHelperClass.getFullname());
                 label_email.setText(userHelperClass.getEmail());
                 label_password.setText(userHelperClass.getPassword());

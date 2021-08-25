@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.nonawn.Databases.SessionManager;
 import com.example.nonawn.R;
 import com.example.nonawn.User.Profile;
 import com.example.nonawn.User.UserDashboard;
@@ -192,6 +193,12 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("password", checker);
                         intent.putExtra("uipn",userInputPhoneNumber);
+
+                        //Create a session
+
+                        SessionManager sessionManager = new SessionManager(Login.this);
+                        sessionManager.createLoginSession(userInputPhoneNumber);
+
 
                         startActivity(intent);
                     }

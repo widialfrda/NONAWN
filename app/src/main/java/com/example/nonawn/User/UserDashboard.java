@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.nonawn.Databases.SessionManager;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.nonawn.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.nonawn.HelperClasses.HomeAdapter.KategoriAdapter;
@@ -29,6 +30,7 @@ import com.example.nonawn.R;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -77,6 +79,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         uipn = intent.getStringExtra("uipn");
 
         Log.e("UIPN",""+uipn);
+
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String, String> userDetails = sessionManager.getUserDetailFromSession();
+
+        String phoneNumber = userDetails.get(SessionManager.KEY_PhoneNumber);
     }
 
     //Navigation Drawer Functions
@@ -129,9 +136,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 startActivity(new Intent(getApplicationContext(),Tentang.class));
                 break;
             case R.id.bottom_nav_profile:
-                startActivity(new Intent(getApplicationContext(),Profile.class));
+                startActivity(new Intent(getApplicationContext(), Profile.class).putExtra("uipn",uipn));
                 break;
         }
+
         return true;
     }
 
