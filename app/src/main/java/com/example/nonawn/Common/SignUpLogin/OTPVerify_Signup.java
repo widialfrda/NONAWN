@@ -53,7 +53,6 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otp_verify_signup);
 
         //hooks
@@ -67,7 +66,7 @@ public class OTPVerify_Signup extends AppCompatActivity {
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull @NotNull PhoneAuthCredential credential) {
-                Toast.makeText(OTPVerify_Signup.this, ""+credential, Toast.LENGTH_SHORT).show();
+                Toast.makeText(OTPVerify_Signup.this, "OTP berhasil"+credential, Toast.LENGTH_SHORT).show();
                 signInWithPhoneAuthCredential(credential);
             }
 
@@ -85,7 +84,7 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
             @Override
             public void onCodeSent(@NonNull @NotNull String verificationId, @NonNull @NotNull PhoneAuthProvider.ForceResendingToken token) {
-                Toast.makeText(OTPVerify_Signup.this, ""+verificationId, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(OTPVerify_Signup.this, ""+verificationId, Toast.LENGTH_SHORT).show();
 
                 mVerificationId = verificationId;
                 mResendToken = token;
@@ -114,8 +113,8 @@ public class OTPVerify_Signup extends AppCompatActivity {
 
                     storeNewUsersData();
 
-                    Intent intent = new Intent(OTPVerify_Signup.this, Profile.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Intent intent = new Intent(OTPVerify_Signup.this, Login.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
 
 

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "778610678627",
+    "firebase_url": "https://nonawn-260799-default-rtdb.firebaseio.com",
     "project_id": "nonawn-260799",
     "storage_bucket": "nonawn-260799.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "778610678627-kqmf0fmrngn8s6t7qp7rhkl5vbgb0fbn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nonawn",
+            "certificate_hash": "c800cca0b77caec2e9f2f61a515f4f8d945812da"
+          }
+        },
         {
           "client_id": "778610678627-frgtomcsb0r43omd1qe9lp2k1f68den6.apps.googleusercontent.com",
           "client_type": 3
