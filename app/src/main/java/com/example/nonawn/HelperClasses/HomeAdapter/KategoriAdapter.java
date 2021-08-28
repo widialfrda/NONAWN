@@ -39,6 +39,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
         holder.image_kategori.setImageResource(kategoriHelperClass.getImage());
         holder.tittle_kategori.setText(kategoriHelperClass.getTittle());
         holder.relativeLayout.setBackground(kategoriHelperClass.getColor());
+        holder.desc_kategori.setText(kategoriHelperClass.getDescription());
     }
 
     @Override
@@ -49,7 +50,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
     public static class KategoriHolder extends RecyclerView.ViewHolder{
 
         ImageView image_kategori;
-        TextView tittle_kategori;
+        TextView tittle_kategori, desc_kategori;
         RelativeLayout relativeLayout;
 
         public KategoriHolder (@NonNull View itemView) {
@@ -59,6 +60,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
             relativeLayout = itemView.findViewById(R.id.categ_bg);
             image_kategori = itemView.findViewById(R.id.categ_image);
             tittle_kategori = itemView.findViewById(R.id.categ_tittle);
+            desc_kategori = itemView.findViewById(R.id.categ_desc);
 
 
         }

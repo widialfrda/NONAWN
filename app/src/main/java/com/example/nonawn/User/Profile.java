@@ -109,16 +109,11 @@ public class Profile extends AppCompatActivity {
 
     public void logout_profile(View view) {
 
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
                 sessionManager.logoutUserFromSession();
 
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
-            }
-        });
     }
 }

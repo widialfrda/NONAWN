@@ -5,13 +5,14 @@ import android.graphics.drawable.GradientDrawable;
 public class KategoriHelperClass  {
 
     int image;
-    String tittle;
+    String tittle, description;
     GradientDrawable color;
 
-    public KategoriHelperClass(GradientDrawable color,int image, String tittle){
+    public KategoriHelperClass(GradientDrawable color,int image, String tittle, String description){
         this.image = image;
         this.tittle = tittle;
         this.color = color;
+        this.description = description;
     }
 
     public int getImage() {
@@ -24,5 +25,9 @@ public class KategoriHelperClass  {
 
     public GradientDrawable getColor() {
         return color;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

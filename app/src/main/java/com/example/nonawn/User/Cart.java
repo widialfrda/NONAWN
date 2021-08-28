@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nonawn.Common.SignUpLogin.SuksesOrder;
 import com.example.nonawn.HelperClasses.MenuModel.CartAdapter;
@@ -150,7 +151,16 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
     }
 
     public void checkout(View view) {
-        startActivity(new Intent(getApplicationContext(), SuksesOrder.class));
-        finish();
+
+        int gettotalharga = txt_cart.getText();
+
+        if (gettotalharga == 0){
+            Toast.makeText(this, "Keranjang Kosong",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            startActivity(new Intent(getApplicationContext(), SuksesOrder.class));
+            finish();
+        }
+    return gettotalharga;
     }
 }

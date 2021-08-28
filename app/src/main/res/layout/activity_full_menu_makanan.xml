@@ -66,13 +66,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@id/act_bar">
+        android:layout_below="@id/act_bar"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_variannonspicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
+                android:paddingLeft="10dp"
                 android:paddingRight="10dp"/>
     </LinearLayout>
 

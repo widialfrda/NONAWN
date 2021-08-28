@@ -56,7 +56,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_dashboard);
 
         //Hooks untuk setting agar elemen memasukkan fitur recycler ke dalam user dashboard
@@ -165,16 +165,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         ArrayList<KategoriHelperClass> kategoriLocations = new ArrayList<>();
 
-        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.gurih, "Gurih"));
-        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.gurih_jeruk, "Gurih Jeruk"));
-        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.keju, "Keju"));
-        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.bbq, "BBQ"));
-        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.lada_hitam, "Lada Hitam"));
-        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.seaweed, "Rumput Laut"));
-        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.cabe_ijo, "Cabe Ijo"));
-        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.cabe_merah, "Cabe Merah"));
-        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.merah_jeruk, "Merah Jeruk"));
-        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.ijo_jeruk, "Ijo Jeruk"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.gurih, "Gurih","Perpaduan kerupuk kulit dengan bumbu gurih yang super enak!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.gurih_jeruk, "Gurih Jeruk","Perpaduan kerupuk kulit dengan bumbu gurih dan daun jeruk yang bikin seger!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.keju, "Keju","Kerupuk kulit sama keju? Siapa bilang gabisa! Rasain deh, bikin ketagihan!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.bbq, "BBQ", "Kerupuk kulit sama bumbu BBQ? Whaa! Rasanya sangat solid!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.lada_hitam, "Lada Hitam","Buat yang gak suka rasa pedes, ada rasa lada hitam yang bikin kaya rasa!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.seaweed, "Rumput Laut","Kata siapa Seaweed gak bisa di campur kerupuk kulit? Bakalan jadi enak loh! cobain yuk!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.cabe_ijo, "Cabe Ijo","Buat yang gak terlalu suka pedes, varian ini cocok banget untuk kamu"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.cabe_merah, "Cabe Merah","Buat yang suka pedes, varian ini jadi sahabat kamu banget pasti!"));
+        kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.merah_jeruk, "Merah Jeruk","Varian ini seger banget karena dilengkapi dengan bubuk cabe segar dan daun jeruk"));
+        kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.ijo_jeruk, "Ijo Jeruk","Yang suka seger dan gak terlalu pedas. Varian ini cocok banget untuk kamu"));
 
         //kategoriRecycler.setHasFixedSize(true);
         kategoriRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -203,7 +203,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         promoLocations.add(new PromoHelperClass(R.drawable.diskon, "BUY 3 GET 1", "Hanya di minggu ini, beli 3 dapat 1 bungkus kerupuk kulit ukuran 80gr"));
         promoLocations.add(new PromoHelperClass(R.drawable.promo99, "PROMO 9.9", "Special discount! Beli 9 ukuran 80gr cuma 99k!"));
-        promoLocations.add(new PromoHelperClass(R.drawable.sharetesti, "NONAWN HAUL", "Hanya share video, bisa dapat 1 bungkus ukuran 80gr gratis!"));
         promoLocations.add(new PromoHelperClass(R.drawable.boci, "BOCI", "CUMA 35K! Kamu udah bisa dapetin bundle spesial Bakso Aci + Kerupuk Kulit"));
         promoLocations.add(new PromoHelperClass(R.drawable.taichan, "TAICHAN", "CUMA 35K! Kamu udah bisa dapetin bundle spesial Bakso Aci + Kerupuk Kulit"));
 
