@@ -176,7 +176,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         kategoriLocations.add(new KategoriHelperClass(gradient1,R.drawable.merah_jeruk, "Merah Jeruk"));
         kategoriLocations.add(new KategoriHelperClass(gradient2,R.drawable.ijo_jeruk, "Ijo Jeruk"));
 
-        kategoriRecycler.setHasFixedSize(true);
+        //kategoriRecycler.setHasFixedSize(true);
         kategoriRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         adapter = new KategoriAdapter(kategoriLocations);
         kategoriRecycler.setAdapter(adapter);
@@ -184,7 +184,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     private void featuredRecycler(){
 
-        featuredRecycler.setHasFixedSize(true);
+        //featuredRecycler.setHasFixedSize(true);
         featuredRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
@@ -207,7 +207,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         promoLocations.add(new PromoHelperClass(R.drawable.boci, "BOCI", "CUMA 35K! Kamu udah bisa dapetin bundle spesial Bakso Aci + Kerupuk Kulit"));
         promoLocations.add(new PromoHelperClass(R.drawable.taichan, "TAICHAN", "CUMA 35K! Kamu udah bisa dapetin bundle spesial Bakso Aci + Kerupuk Kulit"));
 
-        promoRecycler.setHasFixedSize(true);
+        //promoRecycler.setHasFixedSize(true);
         promoRecycler.setLayoutManager((new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)));
         adapter = new PromoAdapter(promoLocations);
         promoRecycler.setAdapter(adapter);
