@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/pattern1"
-            android:layout_marginBottom="-635dp"/>
+            android:layout_marginBottom="-700dp"/>
     </com.google.android.material.navigation.NavigationView>
 
     <LinearLayout

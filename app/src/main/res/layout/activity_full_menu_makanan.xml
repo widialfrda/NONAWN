@@ -70,12 +70,14 @@
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_variannonspicy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_variannonspicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="25dp"/>
     </LinearLayout>
 
 </RelativeLayout>
