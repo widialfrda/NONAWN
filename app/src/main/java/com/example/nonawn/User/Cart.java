@@ -152,6 +152,13 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
 
     public void checkout(View view) {
 
-
+        if (gettotalharga == 0){
+            Toast.makeText(this, "Keranjang Kosong",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            startActivity(new Intent(getApplicationContext(), SuksesOrder.class));
+            finish();
+        }
+    return gettotalharga;
     }
 }
