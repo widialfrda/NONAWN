@@ -7,14 +7,14 @@
     //for tittle on boarding screen
     <string name="shopping_tittle">Easy way for shopping</string>
     <string name="transfer_tittle">Easy BUY Easy PAY</string>
-    <string name="order_success_tittle">Payment Success!</string>
+    <string name="order_success_tittle">Order Success!</string>
     <string name="delivery_tittle">The snacks is yours!</string>
 
     //For desc on boarding screen
-    <string name="shopping_desc">Desain katalog yang simple dan eye catching memudahkan kamu untuk melihat varian snack yang available</string>
+    <string name="shopping_desc">Desain katalog yang simple dan eye catching memudahkan kamu untuk melihat varian produk yang tersedia</string>
     <string name="transfer_desc">Jangan khawatir, kami menyediakan pilihan untuk memudahkan proses pembayaranmu</string>
-    <string name="order_success_desc">Kini kamu dapat melihat detail transaksimu di history</string>
-    <string name="delivery_desc">Selamat menikmati Cemilanmu!</string>
+    <string name="order_success_desc">Setelah order berhasil, pihak kami akan segera menghubungimu untuk konfirmasi pesanan kamu, mohon menunggu ya!</string>
+    <string name="delivery_desc">Konfirmasi selesai, pihak kami akan mengantarkan snacknya kerumahmu. Tenang aja, bayarnya dirumah kamu kok!</string>
 
     //For content on boarding screen
     <string name="skip_btn">SKIP</string>

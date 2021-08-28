@@ -147,17 +147,12 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 finish();
                 break;
             case R.id.button_nav_logout:
-                btn_nav_logout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SessionManager sessionManager = new SessionManager(getApplicationContext());
-                        sessionManager.logoutUserFromSession();
+                SessionManager sessionManager = new SessionManager(getApplicationContext());
+                sessionManager.logoutUserFromSession();
 
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
                 break;
         }
         return true;

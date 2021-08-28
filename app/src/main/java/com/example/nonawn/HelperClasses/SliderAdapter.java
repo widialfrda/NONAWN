@@ -26,7 +26,7 @@ public class SliderAdapter extends PagerAdapter {
     int images[] = {
 
             R.drawable.shopping,
-            R.drawable.transfer,
+//            R.drawable.transfer,
             R.drawable.order_success,
             R.drawable.deliveries,
     };
@@ -34,7 +34,7 @@ public class SliderAdapter extends PagerAdapter {
     int headings[] = {
 
             R.string.shopping_tittle,
-            R.string.transfer_tittle,
+//            R.string.transfer_tittle,
             R.string.order_success_tittle,
             R.string.delivery_tittle,
     };
@@ -42,7 +42,7 @@ public class SliderAdapter extends PagerAdapter {
     int descriptions [] = {
 
             R.string.shopping_desc,
-            R.string.transfer_desc,
+//            R.string.transfer_desc,
             R.string.order_success_desc,
             R.string.delivery_desc,
 

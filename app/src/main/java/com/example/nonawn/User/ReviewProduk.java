@@ -36,28 +36,28 @@ public class ReviewProduk extends AppCompatActivity {
         take_camera = findViewById(R.id.upload_image1);
 
         //Request For Camera Permission
-        if (ContextCompat.checkSelfPermission(ReviewProduk.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(ReviewProduk.this, new String[]{
-                    Manifest.permission.CAMERA
-            }, 100);
-        }
-        take_camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Open Camera
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,100);
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 100){
-            //Get capture image
-            Bitmap captureimage = (Bitmap) data.getExtras().get("data");
-            //set capture image to image view
-            imageView.setImageBitmap(captureimage);
-        }
+//        if (ContextCompat.checkSelfPermission(ReviewProduk.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+//            ActivityCompat.requestPermissions(ReviewProduk.this, new String[]{
+//                    Manifest.permission.CAMERA
+//            }, 100);
+//        }
+//        take_camera.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Open Camera
+//                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(intent,100);
+//            }
+//        });
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        if (requestCode == 100){
+//            //Get capture image
+//            Bitmap captureimage = (Bitmap) data.getExtras().get("data");
+//            //set capture image to image view
+//            imageView.setImageBitmap(captureimage);
+//        }
     }
 }
