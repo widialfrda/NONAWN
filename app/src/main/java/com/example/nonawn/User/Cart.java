@@ -85,10 +85,8 @@ public class Cart extends AppCompatActivity implements CartLoadListener {
         init();
         loadCartFromFirebase();
     }
-
+    //mengambil data untuk di display ke keranjang
     private void loadCartFromFirebase() {
-
-
 
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference("Cart").child(uipn)

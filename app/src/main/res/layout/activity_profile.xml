@@ -10,6 +10,8 @@
     android:paddingRight="20dp"
     android:paddingLeft="20dp">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -196,10 +198,25 @@
         android:gravity="bottom">
 
         <Button
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_back"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/maroon"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:text="BACK"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:onClick="logout_back"/>
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/grey"
             android:elevation="10dp"
             android:fontFamily="sans-serif"
             android:text="LOGOUT"

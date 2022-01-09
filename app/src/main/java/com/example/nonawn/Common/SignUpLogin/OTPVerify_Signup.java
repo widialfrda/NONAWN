@@ -135,10 +135,6 @@ public class OTPVerify_Signup extends AppCompatActivity {
         UserHelperClass addNewUser = new UserHelperClass(fullname,email,password,phoneNo);
 
         reference.setValue(addNewUser);
-
-
-
-
     }
 
 

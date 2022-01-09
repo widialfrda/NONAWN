@@ -116,4 +116,9 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
                 finish();
     }
+
+    public void logout_back(View view) {
+        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
+        finish();
+    }
 }

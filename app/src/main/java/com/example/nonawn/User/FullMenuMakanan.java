@@ -92,7 +92,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         loadMenufromFirebase();
         countCartItem();
     }
-
+    //get data dari tabel varian rasa utk ngedisplay halaman full menu
     private void loadMenufromFirebase() {
 
         String gambar, harga;
@@ -204,6 +204,7 @@ public class FullMenuMakanan extends AppCompatActivity implements MenuLoadListen
         countCartItem();
     }
 
+    //get data untuk update notif bagde
     private void countCartItem() {
         List<CartHelperClass> cartHelperClasses = new ArrayList<>();
         FirebaseDatabase

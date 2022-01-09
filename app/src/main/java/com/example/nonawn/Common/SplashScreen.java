@@ -12,10 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.nonawn.Common.OnBoarding;
 import com.example.nonawn.Common.SignUpLogin.RetailerWelcomeScreen;
 import com.example.nonawn.R;
-import com.example.nonawn.User.UserDashboard;
 
 public class SplashScreen extends AppCompatActivity {
     private static int SPLASH_TIMER = 5000;

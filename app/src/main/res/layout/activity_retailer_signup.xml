@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="No. Whatsapp (ex: 896xxxx)"
+            android:hint="No. Telp (cth: 896xxxx)"
             android:textColorHint="@color/dark_grey"
             app:boxStrokeColor="@color/dark_grey"
             app:hintTextColor="@color/dark_grey"

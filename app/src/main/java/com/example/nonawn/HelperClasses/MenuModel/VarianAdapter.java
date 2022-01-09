@@ -53,7 +53,7 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
     public VarianViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new VarianViewHolder(LayoutInflater.from(context).inflate(R.layout.varianmenu_card_design,parent,false));
     }
-
+    //megang kunci menu helper class
     @Override
     public void onBindViewHolder(@NonNull VarianViewHolder holder, int position) {
         Glide.with(context)
@@ -69,6 +69,7 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
 
     }
 
+    //nambah data ke tabel cart
     private void addToCart(MenuHelperClass menuHelperClass) {
         String uipn_va;
         Intent intent = ((Activity) context).getIntent();
@@ -78,9 +79,6 @@ public class VarianAdapter extends RecyclerView.Adapter<VarianAdapter.VarianView
                 .getInstance()
                 .getReference("Cart")
                 .child(uipn_va);
-
-        /*Log.e("KEY",""+menuHelperClass.getKey());
-        Log.e("VARIAN",""+menuHelperClass.getVarian());*/
 
         userCart.child(menuHelperClass.getVarian())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
